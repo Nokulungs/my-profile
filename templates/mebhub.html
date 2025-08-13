@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block title %}MEB Hub{% endblock %}
+
+{% block content %}
+<section class="project-detail-section">
+    <h2>MEB Hub</h2>
+
+    <!-- Overview -->
+    <h3>Overview</h3>
+    <p>
+        MEB Hub is a web application created to help university students navigate campus life more efficiently.
+        It provides access to campus maps, upcoming events, and transport schedules across multiple university campuses.
+        The platform aims to centralize key student services into one accessible and mobile-friendly solution.
+    </p>
+
+    <!-- Tech stack -->
+    <h3>Technologies Used</h3>
+    <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Django</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Figma</span>
+    </div>
+
+    <!-- Key Features -->
+    <h3>Key Features</h3>
+    <ul class="features-list">
+        <li>Interactive campus map for locating facilities</li>
+        <li>Event listing with date, time, and descriptions</li>
+        <li>Transport schedule viewer with bus route info</li>
+        <li>Mobile-responsive design for easy access</li>
+        <li>User-friendly layout tailored for student needs</li>
+    </ul>
+
+    <!-- Screenshots -->
+    <h3>Screenshots</h3>
+    <div class="screenshots">
+        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/mebhub_1.png" alt="MEB Hub screenshot 1" class="screenshot-img" />
+        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/mebhub_2.png" alt="MEB Hub screenshot 2" class="screenshot-img" />
+        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/mebhub_3.png" alt="MEB Hub screenshot 3" class="screenshot-img" />
+        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/mebhub_4.png" alt="MEB Hub screenshot 4" class="screenshot-img" />
+    </div>
+
+    <!-- Source code link -->
+    <p>
+        <a href="/projects" target="_blank" rel="noopener noreferrer" class="project-link">
+            View projects
+        </a>
+    </p>
+</section>
+
+<style>
+    .project-detail-section {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        color: #2e2e2e;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .screenshots {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .screenshot-img {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-tech {
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .tech-tag {
+        background-color: #dceeff; /* pastel blue */
+        color: #1a1a1a;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.9em;
+    }
+
+    .project-link {
+        font-weight: 600;
+        color: #4682b4; /* steel blue for contrast */
+        text-decoration: none;
+        border-bottom: 2px solid #aacde6;
+        padding-bottom: 2px;
+    }
+
+    .project-link:hover {
+        color: #2b587a;
+        border-color: #87bddf;
+    }
+
+    .features-list {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+</style>
+{% endblock %}
