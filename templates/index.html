@@ -1,46 +1,75 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<nav class="profile-nav">
-    <ul>
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="/resume">Resume</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/contact">Contact</a></li>
-    </ul>
-</nav>
 
+
+<!-- About Section -->
 <section id="about" class="landing active-section">
     <div class="profile-pic">
-        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/photo.jpg" alt="profile photo" class="screenshot-img" />
+        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/photo.jpg" 
+             alt="profile photo" class="screenshot-img" />
     </div>
     <h1>Sibongokuhle Nokulunga Bembe</h1>
     <h2 class="title">Software Developer | Data Analyst</h2>
     
     <p class="bio">
-Motivated and versatile candidate with practical experience in web development, data analysis, and cloud technologies. Skilled in Python, Java, SQL, and Power BI to build user-focused applications and insightful dashboards. Passionate about leveraging technology to solve real-world problems across education, childcare, and business domains with clean design and data-driven decision-making.    </p>
+        Motivated and versatile candidate with practical experience in web development, data analysis, 
+        and cloud technologies. Skilled in Python, Java, SQL, and Power BI to build user-focused 
+        applications and insightful dashboards. Passionate about leveraging technology to solve 
+        real-world problems across education, childcare, and business domains with clean design 
+        and data-driven decision-making.
+    </p>
     
     <div class="buttons">
-        <a href="/resume" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-            </svg>
-            View Resume
+        <!-- Download CV Button -->
+        <a href="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Sibongokuhle%20Nokulunga%20Bembe%20cv.pdf" 
+           class="btn btn-primary download-icon" 
+           title="Download CV" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           download>
+            Download Resume
         </a>
-        
-        <a href="/projects" class="btn btn-outline">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5z"/>
-                <path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2h-11zM3 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V9h-4.5A1.5 1.5 0 0 0 9 10.5V15H3.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V10.5a.5.5 0 0 1 .5-.5h4.293L10 14.793z"/>
-            </svg>
-            My Projects
-        </a>
+        <a href="/projects" class="btn btn-outline">My Projects</a>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">Java</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">HTML & CSS</div>
+        <div class="skill-card">SQL & PL/SQL</div>
+        <div class="skill-card">Kotlin</div>
+        <div class="skill-card">React</div>
+        <div class="skill-card">Django</div>
+        <div class="skill-card">Flask</div>
+        <div class="skill-card">JEE & JPA</div>
+        <div class="skill-card">Power BI</div>
+        <div class="skill-card">Azure</div>
+        <div class="skill-card">Git & GitHub</div>
+    </div>
+</section>
+
+<!-- Tools & IDEs Section -->
+<section id="tools">
+    <h2>Tools & IDEs</h2>
+    <div class="skills-grid">
+        <div class="skill-card">NetBeans</div>
+        <div class="skill-card">VS Code</div>
+        <div class="skill-card">Sublime Text</div>
+        <div class="skill-card">Figma</div>
+        <div class="skill-card">Android Studio</div>
+        <div class="skill-card">Git</div>
+        <div class="skill-card">Atom</div>
     </div>
 </section>
 
 <style>
-    /* Navigation Styles */
+    /* Navbar */
     .profile-nav {
         background-color: var(--white);
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -48,35 +77,44 @@ Motivated and versatile candidate with practical experience in web development, 
         top: 0;
         z-index: 100;
     }
-    
-    .profile-nav ul {
+
+    .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .logo a {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--dark-brown);
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
         list-style: none;
-        padding: 0;
-        margin: 0;
+        gap: 20px;
     }
-    
-    .profile-nav li {
-        margin: 0 15px;
-    }
-    
-    .profile-nav a {
-        display: block;
-        padding: 20px 10px;
+
+    .nav-links a {
+        padding: 15px 10px;
         color: var(--dark-brown);
         text-decoration: none;
         font-weight: 600;
         position: relative;
         transition: color 0.3s ease;
     }
-    
-    .profile-nav a:hover,
-    .profile-nav a.active {
+
+    .nav-links a:hover,
+    .nav-links a.active {
         color: var(--light-brown);
     }
-    
-    .profile-nav a.active::after {
+
+    .nav-links a.active::after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -85,7 +123,44 @@ Motivated and versatile candidate with practical experience in web development, 
         height: 3px;
         background-color: var(--light-brown);
     }
-    
+
+    .menu-toggle {
+        display: none;
+        font-size: 1.8em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--dark-brown);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        
+        .nav-links {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: var(--white);
+            flex-direction: column;
+            align-items: flex-start;
+            width: 200px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .nav-links.open {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin: 10px 0;
+        }
+    }
+
     /* Section Styles */
     section {
         padding: 80px 20px;
@@ -109,162 +184,83 @@ Motivated and versatile candidate with practical experience in web development, 
         background-color: var(--light-brown);
         margin: 15px auto 0;
     }
-    
-    /* Resume Section */
-    .resume-content {
-        display: flex;
-        gap: 40px;
-    }
-    
-    .resume-download {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 20px;
-    }
-    
-    .resume-highlights {
-        flex: 2;
-    }
-    
-    .experience-item {
-        margin-bottom: 25px;
-    }
-    
-    .experience-item h4 {
-        margin-bottom: 5px;
-        color: var(--dark-brown);
-    }
-    
-    .company {
-        font-weight: 600;
-        color: var(--light-brown);
-    }
-    
-    .date {
-        color: #777;
-        font-size: 0.9em;
-    }
-    
-    /* Projects Section */
-    .project-grid {
+
+    /* Skills Grid */
+    .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
     }
-    
-    .project-card {
-        background-color: var(--white);
-        border-radius: 8px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+    .skill-card {
+        background: var(--white);
+        padding: 15px;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        font-weight: 600;
+        color: var(--dark-brown);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    .project-card:hover {
+
+    .skill-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
-    
-    .project-card h3 {
-        color: var(--dark-brown);
-        margin-top: 0;
+
+    /* Download CV Button */
+    a.download-icon {
+        color: white;             
+        text-decoration: none;    
+        font-weight: 600;         
+        padding: 10px 20px;       
+        display: inline-block;    
+        border-radius: 8px;       
+        background-color: #6c4f3d; /* match primary button */
+        transition: background-color 0.3s ease;
     }
-    
-    .project-link {
-        display: inline-block;
-        margin-top: 15px;
-        color: var(--light-brown);
-        font-weight: 600;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .project-link:hover {
-        color: var(--dark-brown);
-    }
-    
-    /* Contact Section */
-    .contact-content {
-        display: flex;
-        gap: 50px;
-    }
-    
-    .contact-info {
-        flex: 1;
-    }
-    
-    .contact-info p {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.1em;
-    }
-    
-    .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 30px;
-    }
-    
-    .social-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background-color: var(--white);
-        border-radius: 50%;
-        color: var(--dark-brown);
-        transition: all 0.3s ease;
-    }
-    
-    .social-icon:hover {
-        background-color: var(--light-brown);
-        color: var(--white);
-    }
-    
-    .contact-form {
-        flex: 1;
-    }
-    
-    .form-group {
-        margin-bottom: 20px;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-family: inherit;
-        transition: border-color 0.3s ease;
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus {
-        outline: none;
-        border-color: var(--light-brown);
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-        .resume-content,
-        .contact-content {
-            flex-direction: column;
-        }
-        
-        .profile-nav ul {
-            flex-wrap: wrap;
-        }
-        
-        .profile-nav li {
-            margin: 5px 10px;
-        }
+
+    a.download-icon:hover {
+        background-color: #8b5e3c; 
+        color: white;               
     }
 </style>
 
+<script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll("section");
+
+    // Mobile menu toggle
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+
+    navItems.forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+        });
+    });
+
+    // Scroll spy: update active navbar link based on section in view
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 80;
+            const sectionHeight = section.offsetHeight;
+            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navItems.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + current) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
 
 {% endblock %}
