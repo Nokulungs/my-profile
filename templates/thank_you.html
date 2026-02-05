@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+<section style="padding:50px; text-align:center;">
+    <h2>Thank you! ✅</h2>
+    <p>Your message has been sent successfully. I’ll get back to you soon.</p>
+    <a href="/" class="btn-back-home">← Back to About</a>
+</section>
+
+<style>
+.btn-back-home {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--light-brown, #8B5E3C);
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid var(--light-brown, #8B5E3C);
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-back-home:hover {
+    background-color: var(--light-brown, #8B5E3C);
+    color: var(--white, #fff);
+    transform: translateY(-2px);
+}
+</style>
+{% endblock %}

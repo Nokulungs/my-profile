@@ -1,266 +1,669 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 
 {% block content %}
 
+<!-- ================= HERO / ABOUT ================= -->
+<section id="about" class="reveal hero-section" style="text-align:center; padding:80px 20px;">
 
-<!-- About Section -->
-<section id="about" class="landing active-section">
-    <div class="profile-pic">
-        <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/photo.jpg" 
-             alt="profile photo" class="screenshot-img" />
-    </div>
-    <h1>Sibongokuhle Nokulunga Bembe</h1>
-    <h2 class="title">Software Developer | Data Analyst</h2>
-    
-    <p class="bio">
-        Motivated and versatile candidate with practical experience in web development, data analysis, 
-        and cloud technologies. Skilled in Python, Java, SQL, and Power BI to build user-focused 
-        applications and insightful dashboards. Passionate about leveraging technology to solve 
-        real-world problems across education, childcare, and business domains with clean design 
-        and data-driven decision-making.
+<img 
+  src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Sibongokuhle_N_Bembe.png"
+  alt="Profile photo"
+  class="profile-pic">
+
+
+    <h1 class="hero-title">
+        Sibongokuhle Nokulunga Bembe
+    </h1>
+
+    <!-- Professional Title with subtle animation -->
+    <h2 class="hero-subtitle">
+        <span class="title-text">AI/ML Engineer</span>
+        <span class="animated-underline"></span>
+    </h2>
+
+    <p class="hero-bio">
+        AI & Machine Learning Specialist focused on deploying and optimizing intelligent, production-scale systems. Combines deep expertise in applied ML with robust software engineering principles to build, train, and integrate models into scalable applications. Skilled at enhancing model performance, managing the deployment lifecycle, and leveraging cloud technologies to deliver reliable, data-driven solutions.
     </p>
-    
-    <div class="buttons">
-        <!-- Download CV Button -->
-        <a href="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Sibongokuhle%20Nokulunga%20Bembe%20cv.pdf" 
-           class="btn btn-primary download-icon" 
-           title="Download CV" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           download>
+        
+    <div class="hero-buttons">
+        <a href="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Sibongokuhle_Bembe_AI_ML_CV_v2.pdf"
+           target="_blank"
+           class="btn btn-primary">
             Download Resume
         </a>
-        <a href="/projects" class="btn btn-outline">My Projects</a>
+        <a href="/projects"
+           class="btn btn-outline">
+            View Projects
+        </a>
     </div>
 </section>
 
-<!-- Skills Section -->
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-card">Java</div>
-        <div class="skill-card">Python</div>
-        <div class="skill-card">JavaScript</div>
-        <div class="skill-card">HTML & CSS</div>
-        <div class="skill-card">SQL & PL/SQL</div>
-        <div class="skill-card">Kotlin</div>
-        <div class="skill-card">React</div>
-        <div class="skill-card">Django</div>
-        <div class="skill-card">Flask</div>
-        <div class="skill-card">JEE & JPA</div>
-        <div class="skill-card">Power BI</div>
-        <div class="skill-card">Azure</div>
-        <div class="skill-card">Git & GitHub</div>
+<!-- ================= WHAT I DO ================= -->
+<section class="reveal section">
+    <h2>What I Do</h2>
+    <div class="card-grid">
+
+        <div class="skill-card">
+            <i class="bi bi-robot icon"></i>
+            <h3>Machine Learning & AI</h3>
+            <p>Building and deploying intelligent applications using ML models, AI APIs, and data-driven algorithms to solve real-world problems.</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="bi bi-bar-chart-line icon"></i>
+            <h3>Data Analysis</h3>
+            <p>Analyzing data and developing AI-driven insights by applying machine learning techniques to transform raw information into intelligent, actionable outcomes.</p>
+        </div>
+
+        <div class="skill-card">
+            <i class="bi bi-cloud icon"></i>
+            <h3>Cloud & Tools</h3>
+            <p>Working with cloud platforms and development tools to deploy, manage, and scale applications efficiently.</p>
+        </div>
     </div>
 </section>
 
-<!-- Tools & IDEs Section -->
-<section id="tools">
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="reveal section">
+    <h2 style="text-align: center; margin-bottom: 40px;">Skills & Expertise</h2>
+    
+    <div class="skills-container">
+
+        <!-- AI & Machine Learning -->
+        <div class="skill-category">
+            <h3><i class="bi bi-cpu"></i> AI & Machine Learning</h3>
+            <div class="skills-tags">
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">Neural Networks</span>
+                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">Natural Language Processing</span>
+                <span class="skill-tag">Large Language Models</span>
+                <span class="skill-tag">Generative AI</span>
+                <span class="skill-tag">Prompt Engineering</span>
+            </div>
+        </div>
+
+        <!-- AI / ML Frameworks -->
+        <div class="skill-category">
+            <h3><i class="bi bi-gear"></i> AI / ML Frameworks</h3>
+            <div class="skills-tags">
+                <span class="skill-tag">scikit-learn</span>
+                <span class="skill-tag">Pandas & NumPy</span>
+                <span class="skill-tag">Hugging Face Transformers</span>
+                <span class="skill-tag">OpenAI API</span>
+                <span class="skill-tag">TensorFlow/PyTorch</span>
+                <span class="skill-tag">LLM Integration</span>
+            </div>
+        </div>
+
+        <!-- Data & Analytics -->
+        <div class="skill-category">
+            <h3><i class="bi bi-database"></i> Data & Analytics</h3>
+            <div class="skills-tags">
+                <span class="skill-tag">Python for Data</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Data-Driven Decisions</span>
+                <span class="skill-tag">SQL</span>
+            </div>
+        </div>
+
+        <!-- Professional Skills -->
+        <div class="skill-category">
+            <h3><i class="bi bi-briefcase"></i> Professional Skills</h3>
+            <div class="skills-tags">
+                <span class="skill-tag">Strategic Thinking</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Communication</span>
+                <span class="skill-tag">Team Collaboration</span>
+                <span class="skill-tag">Business Research</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section class="reveal section">
     <h2>Tools & IDEs</h2>
-    <div class="skills-grid">
-        <div class="skill-card">NetBeans</div>
-        <div class="skill-card">VS Code</div>
-        <div class="skill-card">Sublime Text</div>
-        <div class="skill-card">Figma</div>
-        <div class="skill-card">Android Studio</div>
-        <div class="skill-card">Git</div>
-        <div class="skill-card">Atom</div>
+    <div class="tools-grid">
+        {% for tool in "VS Code,NetBeans,Android Studio,Figma,Git,PowerBI,Azure,Docker,Jupyter".split(",") %}
+            <div class="tool-card">
+                <div class="tool-icon">
+                    {% if tool == "VS Code" %}<i class="bi bi-code-square"></i>
+                    {% elif tool == "Git" %}<i class="bi bi-git"></i>
+                    {% elif tool == "Figma" %}<i class="bi bi-palette"></i>
+                    {% elif tool == "Google Colab" %}<i class="bi bi-bar-chart"></i>  
+                    {% elif tool == "Jupyter" %}<i class="bi bi-journal-code"></i>
+                    {% else %}<i class="bi bi-gear"></i>{% endif %}
+                </div>
+                <span class="tool-name">{{ tool }}</span>
+            </div>
+        {% endfor %}
     </div>
 </section>
 
-<style>
-    /* Navbar */
-    .profile-nav {
-        background-color: var(--white);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="reveal section alt">
+    <h2>Contact Me</h2>
+    <p>Let's connect and build something amazing!</p>
+    <div class="hero-buttons">
+        <a href="#" class="btn btn-secondary">LinkedIn</a>
+        <a href="#" class="btn btn-secondary">GitHub</a>
+        <a href="mailto:your@email.com" class="btn btn-secondary">Email</a>
+    </div>
+</section>
 
-    .nav-container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-    }
+<!-- ================= FLOATING CTA ================= -->
+<a href="/contact" class="floating-cta">Hire Me</a>
 
-    .logo a {
-        font-size: 1.3em;
-        font-weight: bold;
-        color: var(--dark-brown);
-        text-decoration: none;
+<!-- ================= SCROLL REVEAL ================= -->
+<script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        revealElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if(top < triggerBottom){
+                el.classList.add("active");
+            }
+        });
     }
-
-    .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 20px;
-    }
-
-    .nav-links a {
-        padding: 15px 10px;
-        color: var(--dark-brown);
-        text-decoration: none;
-        font-weight: 600;
-        position: relative;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-        color: var(--light-brown);
-    }
-
-    .nav-links a.active::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: var(--light-brown);
-    }
-
-    .menu-toggle {
-        display: none;
-        font-size: 1.8em;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--dark-brown);
-    }
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-        .menu-toggle {
-            display: block;
-        }
-        
-        .nav-links {
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: var(--white);
-            flex-direction: column;
-            align-items: flex-start;
-            width: 200px;
-            padding: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
-        }
-        
-        .nav-links.open {
-            display: flex;
-        }
-        
-        .nav-links li {
-            margin: 10px 0;
-        }
-    }
-
-    /* Section Styles */
-    section {
-        padding: 80px 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    
-    section h2 {
-        text-align: center;
-        font-size: 2.2em;
-        color: var(--dark-brown);
-        margin-bottom: 40px;
-        position: relative;
-    }
-    
-    section h2::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 3px;
-        background-color: var(--light-brown);
-        margin: 15px auto 0;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
-    }
-
-    .skill-card {
-        background: var(--white);
-        padding: 15px;
-        border-radius: 30px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        text-align: center;
-        font-weight: 600;
-        color: var(--dark-brown);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .skill-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    /* Download CV Button */
-    a.download-icon {
-        color: white;             
-        text-decoration: none;    
-        font-weight: 600;         
-        padding: 10px 20px;       
-        display: inline-block;    
-        border-radius: 8px;       
-        background-color: #6c4f3d; /* match primary button */
-        transition: background-color 0.3s ease;
-    }
-
-    a.download-icon:hover {
-        background-color: #8b5e3c; 
-        color: white;               
-    }
-</style>
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+</script>
 
 <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-    const navItems = document.querySelectorAll(".nav-links a");
-    const sections = document.querySelectorAll("section");
-
-    // Mobile menu toggle
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
-
-    navItems.forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("open");
+    // Subtle pulse animation for the title
+    document.addEventListener('DOMContentLoaded', function() {
+        const title = document.querySelector('.title-text');
+        const underline = document.querySelector('.animated-underline');
+        
+        // Add hover effect
+        title.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            underline.style.width = '100%';
+            underline.style.animation = 'underlineFlow 2s infinite linear';
         });
-    });
-
-    // Scroll spy: update active navbar link based on section in view
-    window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 80;
-            const sectionHeight = section.offsetHeight;
-            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                current = section.getAttribute("id");
-            }
+        
+        title.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            underline.style.width = '60%';
+            underline.style.animation = 'underlineFlow 3s infinite linear';
         });
-
-        navItems.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === "#" + current) {
-                link.classList.add("active");
-            }
+        
+        // Initial animation on page load
+        setTimeout(() => {
+            title.style.opacity = '1';
+            title.style.transform = 'translateY(0)';
+            underline.style.width = '60%';
+        }, 500);
+        
+        // Add subtle glow effect on scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.1;
+            title.style.transform = `translateY(${rate}px) scale(${1 + scrolled * 0.0001})`;
         });
     });
 </script>
+
+<style>
+    /* ===== HERO ===== */
+    .profile-pic {
+        width:160px;
+        height:160px;
+        border-radius:50%;
+        object-fit:cover;
+        box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease;
+        animation: profileFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes profileFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .profile-pic:hover { 
+        transform: scale(1.05) translateY(-5px); 
+        animation: none;
+    }
+
+    .hero-title { 
+        margin-top:25px; 
+        font-size:2.6em; 
+        color:var(--dark-brown); 
+        font-weight:700; 
+        line-height: 1.2;
+        animation: fadeInDown 1s ease-out;
+    }
+    
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .hero-subtitle { 
+        margin-top: 15px; 
+        font-size:1.8em; 
+        color: var(--dark-brown);
+        font-weight: 600;
+        line-height: 1.3;
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px 15px;
+    }
+
+    .title-text {
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: titleAppear 0.8s ease forwards 0.5s;
+        text-shadow: 0 2px 4px rgba(139, 87, 42, 0.1);
+    }
+    
+    @keyframes titleAppear {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animated-underline {
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--light-brown), #8b5cf6, var(--light-brown));
+        background-size: 200% 100%;
+        border-radius: 2px;
+        transition: width 0.5s ease;
+        animation: underlineFlow 3s infinite linear;
+    }
+    
+    @keyframes underlineFlow {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+
+    /* Subttyle glow effect */
+    .title-text::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(139, 87, 42, 0.1) 0%, transparent 70%);
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .title-text:hover::after {
+        opacity: 1;
+    }
+
+    .hero-bio { 
+        max-width:650px; 
+        margin: 40px auto 30px; 
+        font-size:1.05em; 
+        line-height: 1.6;
+        color: #555;
+        animation: fadeInUp 1s ease-out 0.8s both;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-buttons a { 
+        margin:10px; 
+        transition: transform 0.3s; 
+        animation: fadeInUp 1s ease-out 1s both;
+    }
+    
+    .hero-buttons a:nth-child(2) {
+        animation-delay: 1.2s;
+    }
+    
+    .hero-buttons a:hover { 
+        transform: translateY(-3px); 
+    }
+
+    /* ===== CARDS ===== */
+    .card-grid { 
+        display:grid; 
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
+        gap:25px; 
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .skill-card, .project-card { 
+        background:white; 
+        padding:25px; 
+        border-radius:20px; 
+        box-shadow:0 6px 15px rgba(0,0,0,0.1);
+        text-align:center; 
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .skill-card:hover, .project-card:hover { 
+        transform: translateY(-5px); 
+        box-shadow:0 10px 25px rgba(139, 87, 42, 0.2);
+    }
+
+    .icon { 
+        font-size:2em; 
+        margin-bottom:15px; 
+        color:var(--light-brown); 
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .skill-category {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+
+    .skill-category:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(139, 87, 42, 0.15);
+    }
+
+    .skill-category h3 {
+        color: var(--dark-brown);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.3em;
+    }
+
+    .skill-category h3 i {
+        color: var(--light-brown);
+    }
+
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .skill-tag {
+        background: rgba(139, 87, 42, 0.1);
+        color: var(--dark-brown);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(139, 87, 42, 0.2);
+    }
+
+    .skill-tag:hover {
+        background: var(--light-brown);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(139, 87, 42, 0.2);
+    }
+
+    /* ===== TOOLS SECTION ===== */
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .tool-card {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tool-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(139, 87, 42, 0.15);
+    }
+
+    .tool-icon {
+        font-size: 2.5em;
+        color: var(--light-brown);
+    }
+
+    .tool-name {
+        font-weight: 500;
+        color: var(--dark-brown);
+    }
+
+    /* ===== FLOATING CTA ===== */
+    .floating-cta {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: var(--light-brown);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        z-index: 1000;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .floating-cta:hover { 
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(139, 87, 42, 0.3);
+        animation: none;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+        display: inline-block;
+        padding: 12px 26px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    /* Primary button */
+    .btn-primary {
+        background: var(--dark-brown);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: var(--light-brown);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(139, 87, 42, 0.2);
+    }
+
+    /* Outline button */
+    .btn-outline {
+        background: transparent;
+        color: var(--dark-brown);
+        border: 2px solid var(--dark-brown);
+    }
+
+    .btn-outline:hover {
+        background: var(--dark-brown);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Secondary button */
+    .btn-secondary {
+        background: var(--light-brown);
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: var(--dark-brown);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(139, 87, 42, 0.2);
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { 
+        opacity:0; 
+        transform: translateY(40px); 
+        transition: all 0.8s ease; 
+    }
+    .reveal.active { 
+        opacity:1; 
+        transform:translateY(0); 
+    }
+
+    /* Centers the text and the container contents */
+    #contact {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 20px;
+    }
+
+    /* Ensures the paragraph under the heading has proper spacing */
+    #contact p {
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Updated Hero/Contact button container */
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+        .skills-tags {
+            justify-content: center;
+        }
+        
+        .tools-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .hero-title {
+            font-size: 2em;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4em;
+        }
+        
+        .skill-category {
+            padding: 20px 15px;
+        }
+        
+        .hero-bio {
+            font-size: 1em;
+            padding: 0 15px;
+            margin: 30px auto 20px;
+        }
+        
+        .profile-pic {
+            animation: profileFloatMobile 3s ease-in-out infinite;
+        }
+        
+        @keyframes profileFloatMobile {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 1.8em;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2em;
+            padding: 0 15px 10px;
+        }
+        
+        .hero-bio {
+            font-size: 0.95em;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            font-size: 0.9em;
+        }
+        
+        .floating-cta {
+            padding: 12px 20px;
+            font-size: 0.9em;
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .animated-underline {
+            height: 2px;
+        }
+    }
+</style>
 
 {% endblock %}

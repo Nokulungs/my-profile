@@ -1,0 +1,837 @@
+{% extends 'layout.html' %}
+
+{% block title %}PulseCheck AI{% endblock %}
+
+{% block content %}
+<section class="project-detail-section">
+    <div class="project-header">
+        <h2>PulseCheck AI</h2>
+        <p class="project-tagline">Intelligent Attendance Management with AI-Driven Insights</p>
+    </div>
+
+    <!-- Overview -->
+    <div class="project-overview">
+        <h3><i class="bi bi-eye-fill"></i> Project Overview</h3>
+        <p>
+            PulseCheck AI is a full-stack attendance management solution built to bridge the gap between administrative oversight and employee well-being. By integrating AI-assisted verification and real-time geofencing, the platform ensures high compliance while maintaining a modern, transparent relationship between staff and management.
+        </p>
+        <div class="innovation-pillars">
+            <div class="pillar">
+                <div class="pillar-icon">🤖</div>
+                <span>AI-Driven Intelligence</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">🎯</div>
+                <span>Contextual Reliability</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">📍</div>
+                <span>Geofence Security</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">🎨</div>
+                <span>Bespoke Design System</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tech stack -->
+    <h3><i class="bi bi-gear-fill"></i> Technologies Used</h3>
+    <div class="project-tech">
+        <span class="tech-tag">Next.js</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Tailwind CSS</span>
+        <span class="tech-tag">AI/LLM</span>
+        <span class="tech-tag">Geolocation API</span>
+        <span class="tech-tag">Vercel</span>
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">CSS Glassmorphism</span>
+    </div>
+
+    <!-- Core Innovation Pillars -->
+    <h3><i class="bi bi-lightbulb-fill"></i> Core Innovation Pillars</h3>
+    <div class="pillars-grid">
+        <div class="pillar-card ai-card">
+            <div class="pillar-card-header">
+                <div class="pillar-card-icon">🤖</div>
+                <h4>AI-Driven Intelligence</h4>
+            </div>
+            <div class="pillar-card-content">
+                <ul>
+                    <li><strong>AI Lateness Coach:</strong> Provides constructive feedback for tardiness patterns</li>
+                    <li><strong>Automated Verification:</strong> AI verification for medical sick notes</li>
+                    <li><strong>Reduced Manual Labor:</strong> Automates administrative document processing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pillar-card reliability-card">
+            <div class="pillar-card-header">
+                <div class="pillar-card-icon">📊</div>
+                <h4>Contextual Reliability</h4>
+            </div>
+            <div class="pillar-card-content">
+                <ul>
+                    <li><strong>Pulse Scores:</strong> Replaces traditional "hours clocked" with engagement metrics</li>
+                    <li><strong>Reliability Metrics:</strong> Nuanced view of employee commitment</li>
+                    <li><strong>Engagement Analytics:</strong> Tracks participation and contribution patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pillar-card security-card">
+            <div class="pillar-card-header">
+                <div class="pillar-card-icon">🔒</div>
+                <h4>Geofence Security</h4>
+            </div>
+            <div class="pillar-card-content">
+                <ul>
+                    <li><strong>Location-Based Check-ins:</strong> Ensures presence in designated workspaces</li>
+                    <li><strong>Real-Time Tracking:</strong> Monitors attendance with precision</li>
+                    <li><strong>Compliance Assurance:</strong> Verifies physical presence requirements</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pillar-card design-card">
+            <div class="pillar-card-header">
+                <div class="pillar-card-icon">🎨</div>
+                <h4>Bespoke Design System</h4>
+            </div>
+            <div class="pillar-card-content">
+                <ul>
+                    <li><strong>Forest & Cream Aesthetic:</strong> Natural, calming color palette</li>
+                    <li><strong>Glassmorphism:</strong> Modern UI with frosted glass effects</li>
+                    <li><strong>Super-Rounded Containers:</strong> Soft, approachable interface design</li>
+                    <li><strong>Dashboard Fatigue Reduction:</strong> Thoughtful UX prevents overwhelm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Technical Modules -->
+    <h3><i class="bi bi-layers-fill"></i> Key Technical Modules</h3>
+    <div class="modules-section">
+        <div class="module-card">
+            <div class="module-header">
+                <div class="module-number">01</div>
+                <h4>Admin Command Center</h4>
+            </div>
+            <div class="module-content">
+                <p>Deep-dive analytics into compliance metrics with streamlined leave approval workflows and team management tools.</p>
+                <div class="module-features">
+                    <span class="module-feature">Analytics Dashboard</span>
+                    <span class="module-feature">Leave Management</span>
+                    <span class="module-feature">Team Overview</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header">
+                <div class="module-number">02</div>
+                <h4>Employee Self-Service Portal</h4>
+            </div>
+            <div class="module-content">
+                <p>Comprehensive suite for tracking personal leave balances, submitting AI-verified documentation, and reviewing engagement scores.</p>
+                <div class="module-features">
+                    <span class="module-feature">Leave Tracking</span>
+                    <span class="module-feature">Document Submission</span>
+                    <span class="module-feature">Score Review</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-card">
+            <div class="module-header">
+                <div class="module-number">03</div>
+                <h4>Compliance & Engagement Log</h4>
+            </div>
+            <div class="module-content">
+                <p>A digital "Code of Engagement" that gamifies and standardizes professional expectations while tracking compliance.</p>
+                <div class="module-features">
+                    <span class="module-feature">Gamification</span>
+                    <span class="module-feature">Compliance Tracking</span>
+                    <span class="module-feature">Engagement Metrics</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Snapshot -->
+    <h3><i class="bi bi-terminal-fill"></i> Technical Snapshot</h3>
+    <div class="technical-snapshot">
+        <div class="tech-category">
+            <h5>Architecture & Stack</h5>
+            <div class="tech-details">
+                <div class="tech-item">
+                    <span class="tech-label">Frontend Framework</span>
+                    <span class="tech-value">React/Next.js with TypeScript</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-label">State Management</span>
+                    <span class="tech-value">Sophisticated state for complex dashboards</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-label">Styling</span>
+                    <span class="tech-value">Custom Tailwind CSS + Glassmorphism</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-category">
+            <h5>Key Features</h5>
+            <div class="tech-details">
+                <div class="tech-item">
+                    <span class="tech-label">Document Processing</span>
+                    <span class="tech-value">Automated AI parsing & verification</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-label">Location Services</span>
+                    <span class="tech-value">Geolocation API integration</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-label">Data Visualization</span>
+                    <span class="tech-value">Dynamic Pulse metrics dashboards</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-category">
+            <h5>Security & Access</h5>
+            <div class="tech-details">
+                <div class="tech-item">
+                    <span class="tech-label">Access Control</span>
+                    <span class="tech-value">Role-based (RBAC) with Admin/Employee flows</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-label">Data Protection</span>
+                    <span class="tech-value">Encrypted attendance records</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-label">Compliance</span>
+                    <span class="tech-value">GDPR-ready data handling</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design Preview -->
+    <h3><i class="bi bi-palette-fill"></i> Design System Preview</h3>
+    <div class="design-preview">
+        <div class="color-palette">
+            <div class="color-card" style="background-color: #2E8B57;">
+                <span class="color-name">Forest Green</span>
+                <span class="color-hex">#2E8B57</span>
+            </div>
+            <div class="color-card" style="background-color: #FFFDD0;">
+                <span class="color-name">Cream</span>
+                <span class="color-hex">#FFFDD0</span>
+            </div>
+            <div class="color-card" style="background-color: rgba(255, 255, 255, 0.25); backdrop-filter: blur(10px);">
+                <span class="color-name">Glass Effect</span>
+                <span class="color-hex">rgba(255,255,255,0.25)</span>
+            </div>
+        </div>
+        <div class="design-features">
+            <div class="design-feature">
+                <div class="feature-icon">○</div>
+                <span>Super-Rounded Corners</span>
+            </div>
+            <div class="design-feature">
+                <div class="feature-icon">✨</div>
+                <span>Glassmorphism Effects</span>
+            </div>
+            <div class="design-feature">
+                <div class="feature-icon">📱</div>
+                <span>Mobile-First Responsive</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Demo & Screenshots -->
+    <h3><i class="bi bi-images"></i> Live Demo & Deployment</h3>
+    <div class="demo-section">
+        <div class="demo-info">
+            <div class="demo-status">
+                <span class="status-indicator live"></span>
+                <span class="status-text">Live & Active</span>
+            </div>
+            <p class="demo-description">Experience the full functionality of PulseCheck AI with real-time attendance tracking and AI-powered features.</p>
+            <div class="demo-actions">
+                <a href="https://pulse-check-ai.vercel.app/" target="_blank" class="demo-btn primary">
+                    <i class="bi bi-rocket-takeoff"></i> Visit Live Demo
+                </a>
+                <a href="https://github.com/Nokulungs/PulseCheckAI" target="_blank" class="demo-btn secondary">
+                    <i class="bi bi-github"></i> View Source Code
+                </a>
+            </div>
+        </div>
+        <div class="demo-note">
+            <h5>Demo Credentials (if needed)</h5>
+            <p>Test accounts available for both Admin and Employee roles to showcase RBAC implementation.</p>
+        </div>
+    </div>
+
+    <!-- Links -->
+    <div class="project-links">
+        <a href="https://github.com/Nokulungs/PulseCheckAI" target="_blank" class="project-link">
+            <i class="bi bi-github"></i> GitHub Repository
+        </a>
+        <a href="https://pulse-check-ai.vercel.app/" target="_blank" class="project-link">
+            <i class="bi bi-rocket-takeoff"></i> Live Application
+        </a>
+        <a href="/projects" class="project-link secondary">
+            <i class="bi bi-arrow-left"></i> Back to Projects
+        </a>
+    </div>
+</section>
+
+<style>
+    .project-detail-section {
+        padding: 20px;
+        max-width: 1000px;
+        margin: auto;
+        color: #2e2e2e;
+        font-family: 'Segoe UI', sans-serif;
+        line-height: 1.6;
+    }
+
+    .project-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgba(46, 139, 87, 0.2);
+    }
+
+    .project-header h2 {
+        color: #2E8B57;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .project-tagline {
+        color: #666;
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    .project-detail-section h3 {
+        color: #2E8B57;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .project-detail-section h3 i {
+        font-size: 1.2em;
+    }
+
+    .project-overview {
+        background: linear-gradient(135deg, rgba(46, 139, 87, 0.05) 0%, rgba(255, 253, 208, 0.1) 100%);
+        padding: 25px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(46, 139, 87, 0.1);
+    }
+
+    .innovation-pillars {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .pillar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 15px;
+        background: white;
+        border-radius: 15px;
+        min-width: 120px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .pillar-icon {
+        font-size: 1.8rem;
+    }
+
+    .project-tech {
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tech-tag {
+        background: linear-gradient(135deg, #2E8B57, #3CB371);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 25px;
+        font-size: 0.9em;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(46, 139, 87, 0.2);
+    }
+
+    /* Pillars Grid */
+    .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin: 25px 0;
+    }
+
+    .pillar-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+        border-top: 5px solid;
+    }
+
+    .pillar-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .ai-card { border-color: #2E8B57; }
+    .reliability-card { border-color: #FF6B6B; }
+    .security-card { border-color: #4ECDC4; }
+    .design-card { border-color: #FFD166; }
+
+    .pillar-card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .pillar-card-icon {
+        font-size: 2.5rem;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(46, 139, 87, 0.1);
+        border-radius: 50%;
+    }
+
+    .pillar-card-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pillar-card-content li {
+        margin-bottom: 12px;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .pillar-card-content li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #2E8B57;
+        font-weight: bold;
+    }
+
+    /* Modules Section */
+    .modules-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 25px 0;
+    }
+
+    .module-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .module-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #2E8B57, #FFD166);
+    }
+
+    .module-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .module-number {
+        background: #2E8B57;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .module-content p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .module-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .module-feature {
+        background: rgba(46, 139, 87, 0.1);
+        color: #2E8B57;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.85em;
+        font-weight: 600;
+    }
+
+    /* Technical Snapshot */
+    .technical-snapshot {
+        background: rgba(255, 253, 208, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 25px 0;
+        border: 1px solid rgba(46, 139, 87, 0.1);
+    }
+
+    .tech-category {
+        margin-bottom: 30px;
+    }
+
+    .tech-category:last-child {
+        margin-bottom: 0;
+    }
+
+    .tech-category h5 {
+        color: #2E8B57;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+    }
+
+    .tech-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .tech-item {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .tech-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+        font-size: 0.9em;
+    }
+
+    .tech-value {
+        color: #666;
+        font-size: 0.95em;
+    }
+
+    /* Design Preview */
+    .design-preview {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 25px 0;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .color-palette {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .color-card {
+        width: 150px;
+        height: 150px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .color-card:nth-child(2) {
+        color: #333;
+    }
+
+    .color-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .color-hex {
+        font-size: 0.9em;
+        opacity: 0.9;
+    }
+
+    .design-features {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .design-feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(46, 139, 87, 0.1);
+        border-radius: 50%;
+    }
+
+    /* Demo Section */
+    .demo-section {
+        background: linear-gradient(135deg, #2E8B57, #3CB371);
+        color: white;
+        border-radius: 20px;
+        padding: 40px;
+        margin: 30px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .demo-section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+        background-size: cover;
+    }
+
+    .demo-info, .demo-note {
+        position: relative;
+        z-index: 1;
+    }
+
+    .demo-status {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #4ECDC4;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+
+    .status-text {
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+
+    .demo-description {
+        font-size: 1.1em;
+        margin-bottom: 25px;
+        opacity: 0.9;
+    }
+
+    .demo-actions {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .demo-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .demo-btn.primary {
+        background: white;
+        color: #2E8B57;
+    }
+
+    .demo-btn.primary:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .demo-btn.secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .demo-btn.secondary:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: white;
+    }
+
+    .demo-note {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 25px;
+    }
+
+    /* Links */
+    .project-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(46, 139, 87, 0.2);
+        flex-wrap: wrap;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #2E8B57;
+        color: white;
+        padding: 12px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(46, 139, 87, 0.2);
+    }
+
+    .project-link:hover {
+        background: #26734d;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+    }
+
+    .project-link.secondary {
+        background: transparent;
+        color: #2E8B57;
+        border: 2px solid #2E8B57;
+    }
+
+    .project-link.secondary:hover {
+        background: rgba(46, 139, 87, 0.1);
+    }
+
+    .project-link i {
+        font-size: 1.1em;
+    }
+
+    @media (max-width: 768px) {
+        .pillars-grid,
+        .modules-section {
+            grid-template-columns: 1fr;
+        }
+        
+        .color-palette {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .color-card {
+            width: 100%;
+            max-width: 250px;
+        }
+        
+        .demo-actions {
+            flex-direction: column;
+        }
+        
+        .demo-btn {
+            justify-content: center;
+        }
+        
+        .project-links {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .project-link {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .project-header h2 {
+            font-size: 2rem;
+        }
+        
+        .project-tagline {
+            font-size: 1rem;
+        }
+        
+        .demo-section {
+            padding: 25px;
+        }
+        
+        .tech-details {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}

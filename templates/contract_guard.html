@@ -1,0 +1,450 @@
+{% extends 'layout.html' %}
+
+{% block title %}ContractGuard{% endblock %}
+
+{% block content %}
+<section class="project-detail-section">
+    <h2>ContractGuard</h2>
+
+    <!-- Overview -->
+    <h3>Overview</h3>
+    <p>
+        ContractGuard is a comprehensive TypeScript-based toolkit for auditing, monitoring, and interacting with smart contracts and contract-related workflows. 
+        This toolkit provides developers with utilities for contract analysis, verification, and real-time monitoring with configurable alerting systems.
+        Designed with a TypeScript-first approach, it offers robust local development and testing workflows for blockchain applications.
+    </p>
+
+    <!-- Tech stack -->
+    <h3>Technologies Used</h3>
+    <div class="project-tech">
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">PLpgSQL</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Ethereum</span>
+        <span class="tech-tag">JSON-RPC</span>
+    </div>
+
+    <!-- Key Features -->
+    <h3>Key Features</h3>
+    <ul class="features-list">
+        <li><strong>TypeScript-First Codebase:</strong> Full type safety and modern JavaScript features</li>
+        <li><strong>Smart Contract Analysis:</strong> Utilities for contract verification and security auditing</li>
+        <li><strong>Real-Time Monitoring:</strong> Configurable monitoring hooks for contract events</li>
+        <li><strong>Automated Alerting:</strong> Webhook-based alert system for critical events</li>
+        <li><strong>Local Development Workflow:</strong> Complete setup for testing and development</li>
+        <li><strong>Database Integration:</strong> PLpgSQL for storing contract data and audit logs</li>
+        <li><strong>Modular Architecture:</strong> Well-structured project with clear separation of concerns</li>
+    </ul>
+
+    <!-- Project Structure -->
+    <h3>Project Structure</h3>
+    <div class="structure-diagram">
+        <div class="structure-item">
+            <span class="structure-icon">📁</span>
+            <span><strong>src/</strong> – TypeScript source files</span>
+        </div>
+        <div class="structure-item">
+            <span class="structure-icon">🧪</span>
+            <span><strong>tests/</strong> – Unit and integration tests</span>
+        </div>
+        <div class="structure-item">
+            <span class="structure-icon">📜</span>
+            <span><strong>scripts/</strong> – Helper scripts (migration, seeding)</span>
+        </div>
+        <div class="structure-item">
+            <span class="structure-icon">⚙️</span>
+            <span><strong>config/</strong> – Configuration management</span>
+        </div>
+        <div class="structure-item">
+            <span class="structure-icon">📚</span>
+            <span><strong>docs/</strong> – Additional documentation</span>
+        </div>
+    </div>
+
+    <!-- Quick Start Guide -->
+    <h3>Quick Start Guide</h3>
+    <div class="code-block">
+        <h4>Prerequisites</h4>
+        <ul>
+            <li>Node.js 18+</li>
+            <li>npm, yarn, or pnpm</li>
+            <li>Docker & Docker Compose (optional, for database services)</li>
+        </ul>
+        
+        <h4>Installation</h4>
+        <pre><code># Clone the repository
+git clone https://github.com/Nokulungs/contractguard.git
+cd contractguard
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration</code></pre>
+
+        <h4>Development</h4>
+        <pre><code># Start development server with watch mode
+npm run dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+
+# Start production server
+npm start</code></pre>
+    </div>
+
+    <!-- Configuration -->
+    <h3>Configuration</h3>
+    <p>The project uses environment variables for configuration. Key variables include:</p>
+    <div class="env-vars">
+        <div class="env-var">
+            <span class="env-name">NODE_ENV</span>
+            <span class="env-desc">Environment (development/production)</span>
+        </div>
+        <div class="env-var">
+            <span class="env-name">PORT</span>
+            <span class="env-desc">Application port (default: 3000)</span>
+        </div>
+        <div class="env-var">
+            <span class="env-name">DATABASE_URL</span>
+            <span class="env-desc">PostgreSQL connection string</span>
+        </div>
+        <div class="env-var">
+            <span class="env-name">RPC_URL</span>
+            <span class="env-desc">Ethereum JSON-RPC endpoint</span>
+        </div>
+        <div class="env-var">
+            <span class="env-name">ALERT_WEBHOOK</span>
+            <span class="env-desc">Optional webhook URL for alerts</span>
+        </div>
+    </div>
+
+    <!-- Testing & Quality -->
+    <h3>Testing & Quality Assurance</h3>
+    <div class="quality-section">
+        <div class="quality-item">
+            <h4>Testing</h4>
+            <pre><code># Run test suite
+npm test
+
+# Run with coverage
+npm run test:coverage</code></pre>
+        </div>
+        <div class="quality-item">
+            <h4>Linting & Formatting</h4>
+            <pre><code># Run linter
+npm run lint
+
+# Format code
+npm run format</code></pre>
+        </div>
+    </div>
+
+    <!-- Screenshots / Diagrams -->
+    <h3>Architecture Overview</h3>
+    <div class="screenshots">
+        <div class="architecture-diagram">
+            <div class="arch-layer">
+                <div class="arch-title">Presentation Layer</div>
+                <div class="arch-content">CLI Interface & Web Dashboard</div>
+            </div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-layer">
+                <div class="arch-title">Application Layer</div>
+                <div class="arch-content">Contract Analysis • Monitoring • Alerting</div>
+            </div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-layer">
+                <div class="arch-title">Data Layer</div>
+                <div class="arch-content">PostgreSQL • Blockchain Nodes • Cache</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links -->
+    <div class="project-links">
+        <a href="https://github.com/Nokulungs/contractguard" target="_blank" class="project-link">
+            <i class="bi bi-github"></i> View on GitHub
+        </a>
+        <a href="https://contractguardians.lovable.app/" target="_blank" class="project-link">
+            <i class="bi bi-rocket-takeoff"></i> Live Demo
+        </a>
+        <a href="/projects" class="project-link">
+            <i class="bi bi-arrow-left"></i> Back to Projects
+        </a>
+    </div>
+</section>
+
+<style>
+    .project-detail-section {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        color: #2e2e2e;
+        font-family: 'Segoe UI', sans-serif;
+        line-height: 1.6;
+    }
+
+    .project-detail-section h2 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+
+    .project-detail-section h3 {
+        color: #34495e;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        border-left: 4px solid #3498db;
+    }
+
+    .project-detail-section h4 {
+        color: #2c3e50;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .project-tech {
+        margin-bottom: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tech-tag {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+    }
+
+    .features-list {
+        margin-top: 10px;
+        margin-bottom: 25px;
+        padding-left: 25px;
+        list-style-type: none;
+    }
+
+    .features-list li {
+        margin-bottom: 12px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+        font-weight: bold;
+    }
+
+    .structure-diagram {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 5px solid #3498db;
+    }
+
+    .structure-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .structure-icon {
+        font-size: 1.5em;
+        margin-right: 15px;
+        width: 40px;
+        text-align: center;
+    }
+
+    .code-block {
+        background: #2c3e50;
+        color: #ecf0f1;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        overflow-x: auto;
+    }
+
+    .code-block pre {
+        margin: 0;
+        font-family: 'Consolas', 'Monaco', monospace;
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+
+    .code-block code {
+        color: #ecf0f1;
+    }
+
+    .code-block ul {
+        color: #bdc3c7;
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+
+    .code-block h4 {
+        color: #3498db;
+        margin-top: 25px;
+    }
+
+    .env-vars {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .env-var {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .env-name {
+        font-family: 'Consolas', monospace;
+        color: #e74c3c;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .env-desc {
+        color: #7f8c8d;
+        font-size: 0.9em;
+    }
+
+    .quality-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .quality-item {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .quality-item pre {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 10px 0;
+        overflow-x: auto;
+    }
+
+    .architecture-diagram {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 20px 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .arch-layer {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .arch-title {
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .arch-content {
+        font-size: 0.9em;
+        opacity: 0.9;
+    }
+
+    .arch-arrow {
+        text-align: center;
+        font-size: 1.5em;
+        color: #3498db;
+        margin: 10px 0;
+    }
+
+    .project-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        flex-wrap: wrap;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #3498db;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+    }
+
+    .project-link:hover {
+        background: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    }
+
+    .project-link i {
+        font-size: 1.1em;
+    }
+
+    @media (max-width: 600px) {
+        .project-detail-section {
+            padding: 15px;
+        }
+        
+        .project-links {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .project-link {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+        }
+        
+        .env-vars,
+        .quality-section {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
