@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+
+{% block title %}SupportSync Ticketing System{% endblock %}
+
+{% block content %}
+<section class="project-detail-section">
+    <div class="project-detail-header">
+        <a href="{{ url_for('projects') }}" class="btn-back-home">← Back to Projects</a>
+        <h1>SupportSync Ticketing System</h1>
+    </div>
+
+    <div class="project-detail-content">
+        <div class="project-detail-image">
+            <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/supportsync.png" alt="SupportSync Ticketing System">
+        </div>
+
+        <div class="project-detail-info">
+            <h2>Overview</h2>
+            <p>
+                SupportSync is a comprehensive web-based IT ticketing system designed to streamline internal IT support requests. 
+                It allows users to create, track, and manage tickets efficiently, while enabling IT teams to monitor progress, assign tasks, 
+                and analyze response times for better workflow management.
+            </p>
+
+            <h2>Key Features</h2>
+            <ul>
+                <li>Submit and track support tickets in real-time.</li>
+                <li>Role-based access for users, technicians, and admins.</li>
+                <li>Automated ticket assignment and priority management.</li>
+                <li>Detailed reporting and analytics for support trends.</li>
+                <li>Email notifications and updates for ticket status changes.</li>
+            </ul>
+
+            <h2>Tech Stack</h2>
+            <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">JavaScript</span>
+            </div>
+
+            <h2>Links</h2>
+            <div class="project-links">
+                <a href="https://github.com/Nokulungs/SupportSync" target="_blank" class="btn-back-home">View on GitHub</a>
+                <a href="#" class="btn-back-home coming-soon">Live Demo Coming Soon</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.project-detail-section {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.project-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.project-detail-header h1 {
+    font-size: 2.5rem;
+    color: var(--dark-brown);
+}
+
+.project-detail-content {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.project-detail-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.project-detail-info {
+    flex: 1;
+}
+
+.project-detail-info h2 {
+    color: var(--light-brown);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.project-detail-info p, .project-detail-info ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.project-detail-info ul {
+    padding-left: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.project-links a {
+    text-decoration: none;
+    color: var(--white);
+    background: var(--light-brown);
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    background: #8b5cf6;
+}
+</style>
+{% endblock %}

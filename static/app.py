@@ -1,6 +1,4 @@
-from flask import Flask, render_template, send_from_directory, request
-from email.message import EmailMessage
-import smtplib
+from flask import Flask, render_template, send_from_directory
 import os
 
 app = Flask(__name__)
@@ -23,6 +21,9 @@ def home():
 def resume():
     return render_template('resume.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contacts.html')
 
 @app.route('/projects')
 def projects():
@@ -35,36 +36,6 @@ def download_cv():
 @app.route("/thank-you")
 def thank_you():
     return render_template("thank_you.html")
-
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
-    if request.method == "POST":
-        name = request.form["name"]
-        email = request.form["email"]
-        subject = request.form.get("subject", "Portfolio Contact")
-        message = request.form["message"]
-
-        msg = EmailMessage()
-        msg["From"] = os.getenv("EMAIL_USER")
-        msg["To"] = "nokulungabembe@gmail.com"
-        msg["Subject"] = subject
-        msg.set_content(f"""
-New portfolio message:
-
-Name: {name}
-Email: {email}
-
-Message:
-{message}
-        """)
-
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-            smtp.login(os.getenv("EMAIL_USER"), os.getenv("EMAIL_PASS"))
-            smtp.send_message(msg)
-
-        return render_template("contact.html", success=True)
-
-    return render_template("contact.html")
 
 @app.route('/project/<project_name>')
 def project_detail(project_name):
@@ -85,8 +56,7 @@ def project_detail(project_name):
         'meb_hub': 'mebhub.html',
         'contract_guard': 'contract_guard.html',
         'pulse_checkAI': 'pulse_checkAI.html',
-        'bais_audit': 'bias_audit.html',
-        'supportsync': 'supportsync.html'# URL has typo 'bais' but template is 'bias_audit.html'
+        'bais_audit': 'bais_audit.html',  # URL has typo 'bais' but template is 'bias_audit.html'
     }
     
     if project_name in project_templates:
