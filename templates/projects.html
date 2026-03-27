@@ -4,318 +4,593 @@
 
 {% block content %}
 <section class="projects-section">
-    <div class="projects-header">
-        <h2>My Projects</h2>
-        <a href="/" class="btn-back-home">← About</a>
-    </div>
-
-    <div class="project-grid">
-        <!-- SupportSync Ticketing System -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/supportsync.png" alt="SupportSync Ticketing System">
-                <div class="project-category">Full-Stack Project</div>
+    <div class="projects-container">
+        <!-- Hero Section -->
+        <div class="projects-hero">
+            <div class="hero-content">
+                <a href="/" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to About
+                </a>
+                <h1>My <span class="gradient-text">Projects</span></h1>
+                <p class="hero-description">Building innovative solutions that solve real-world problems</p>
             </div>
-            <div class="project-details">
-                <h3>SupportSync Ticketing System</h3>
-                <p class="project-description">A web-based IT ticketing system designed to streamline internal support requests, manage tickets, and track resolution status efficiently.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Tailwind CSS</span>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="project-grid">
+            <!-- SupportSync Ticketing System -->
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/supportsync.png" alt="SupportSync Ticketing System">
+                    <div class="media-overlay"></div>
+                    <div class="category-badge">Full-Stack</div>
                 </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', project_name='supportsync') }}" class="project-link">View Details</a>
-                    <div class="action-icons">
-                        <a href="https://github.com/Nokulungs/SupportSync" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-                        <a href="#" class="coming-soon" title="Live Project Coming Soon"><i class="bi bi-rocket-takeoff"></i></a>
+                <div class="card-content">
+                    <h3>SupportSync Ticketing System</h3>
+                    <p>A web-based IT ticketing system designed to streamline internal support requests, manage tickets, and track resolution status efficiently.</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>MongoDB</span>
+                        <span>Tailwind</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('project_detail', project_name='supportsync') }}" class="btn-details">View Details →</a>
+                        <div class="project-links">
+                            <a href="https://github.com/Nokulungs/SupportSync" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <span class="coming-soon-icon disabled" aria-label="Live demo coming soon" data-tooltip="Live demo coming soon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PulseCheck AI -->
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/Pulse.png" alt="AI Attendance Dashboard">
+                    <div class="media-overlay"></div>
+                    <div class="category-badge">AI/ML</div>
+                </div>
+                <div class="card-content">
+                    <h3>PulseCheck AI</h3>
+                    <p>Advanced attendance management using AI verification and geofencing to track student engagement.</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Geolocation</span>
+                        <span>AI/ML</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('project_detail', project_name='pulse_checkAI') }}" class="btn-details">View Details →</a>
+                        <div class="project-links">
+                            <a href="https://github.com/Nokulungs/PulseCheckAI" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://pulse-check-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Live demo">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polygon points="15 3 21 3 21 9 15 3"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apply Smart -->
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/apply_smart.png" alt="University Application Portal">
+                    <div class="media-overlay"></div>
+                    <div class="category-badge">Admissions</div>
+                </div>
+                <div class="card-content">
+                    <h3>Apply Smart</h3>
+                    <p>A streamlined student application portal to help students discover university programs they qualify for by comparing their APS and subject marks with program requirements.</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>SQLite</span>
+                        <span>HTML/CSS</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('project_detail', project_name='apply-smart') }}" class="btn-details">View Details →</a>
+                        <div class="project-links">
+                            <a href="https://github.com/Nokulungs/ApplySmart" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://apply-smart-pink.vercel.app/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Live demo">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polygon points="15 3 21 3 21 9 15 3"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meb Hub -->
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/mebhub_1.png" alt="University Campus Portal">
+                    <div class="media-overlay"></div>
+                    <div class="category-badge">Student Portal</div>
+                </div>
+                <div class="card-content">
+                    <h3>Meb Hub</h3>
+                    <p>Collaborated on a web application designed to assist university students with navigating campus life.</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('project_detail', project_name='meb_hub') }}" class="btn-details">View Details →</a>
+                        <div class="project-links">
+                            <span class="coming-soon-icon disabled" aria-label="GitHub coming soon" data-tooltip="GitHub repository coming soon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </span>
+                            <span class="coming-soon-icon disabled" aria-label="Live demo coming soon" data-tooltip="Live demo coming soon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bias Audit: Financial Credit Scoring -->
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bias Audit Dashboard">
+                    <div class="media-overlay"></div>
+                    <div class="category-badge">Responsible AI</div>
+                </div>
+                <div class="card-content">
+                    <h3>Bias Audit: Financial Credit Scoring</h3>
+                    <p>Comprehensive bias audit and mitigation framework for credit scoring models, investigating age-based discrimination with statistical validation and fairness interventions.</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Jupyter</span>
+                        <span>Scikit-learn</span>
+                        <span>Fairness Metrics</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('project_detail', project_name='bias_audit') }}" class="btn-details">View Details →</a>
+                        <div class="project-links">
+                            <a href="https://github.com/Nokulungs/Bias-Audit-" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <span class="coming-soon-icon disabled" aria-label="Live demo coming soon" data-tooltip="Notebook available on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power BI Report -->
+            <div class="project-card">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power BI Dashboard">
+                    <div class="media-overlay"></div>
+                    <div class="category-badge">Data Viz</div>
+                </div>
+                <div class="card-content">
+                    <h3>Power BI Report</h3>
+                    <p>Power BI dashboard on tech mental health, with insights via slicers and Power Query.</p>
+                    <div class="tech-stack">
+                        <span>Power BI</span>
+                        <span>DAX</span>
+                        <span>Data Analysis</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('project_detail', project_name='power_bi') }}" class="btn-details">View Details →</a>
+                        <div class="project-links">
+                            <span class="coming-soon-icon disabled" aria-label="GitHub coming soon" data-tooltip="GitHub repository coming soon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </span>
+                            <span class="coming-soon-icon disabled" aria-label="View report coming soon" data-tooltip="Report coming soon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PulseCheck AI -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Pulse.png" alt="AI Attendance Dashboard">
-                <div class="project-category">AI Attendance System</div>
-            </div>
-            <div class="project-details">
-                <h3>PulseCheck AI</h3>
-                <p class="project-description">Advanced attendance management using AI verification and geofencing to track student engagement.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Geolocation</span>
-                </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', project_name='pulse_checkAI') }}" class="project-link">View Details</a>
-                    <div class="action-icons">
-                        <a href="https://github.com/Nokulungs/PulseCheckAI" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-                        <a href="https://pulse-check-ai.vercel.app/" target="_blank" title="Live Project"><i class="bi bi-rocket-takeoff"></i></a>
-                    </div>
-                </div>
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h3>Interested in collaborating?</h3>
+                <p>Let's build something amazing together</p>
+                <a href="/contact" class="btn-cta">Get in touch →</a>
             </div>
         </div>
-
-        <!-- Meb Hub -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/mebhub_1.png" alt="University Campus Portal">
-                <div class="project-category">Student Portal</div>
-            </div>
-            <div class="project-details">
-                <h3>Meb Hub</h3>
-                <p class="project-description">Collaborated on a web application designed to assist university students with navigating campus life.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">Web App</span>
-                </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', project_name='meb_hub') }}" class="project-link">View Details</a>
-                    <div class="action-icons">
-                        <a href="#" class="coming-soon" title="GitHub Repository Coming Soon"><i class="bi bi-github"></i></a>
-                        <a href="#" class="coming-soon" title="Live Demo Coming Soon"><i class="bi bi-rocket-takeoff"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Apply Smart -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/apply_smart.png" alt="University Application Portal">
-                <div class="project-category">Admissions Portal</div>
-            </div>
-            <div class="project-details">
-                <h3>Apply Smart</h3>
-                <p class="project-description">A streamlined student application portal to simplify university applications and requirements.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">Portal</span>
-                </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', project_name='apply-smart') }}" class="project-link">View Details</a>
-                    <div class="action-icons">
-                        <a href="#" class="coming-soon" title="GitHub Repository Coming Soon"><i class="bi bi-github"></i></a>
-                        <a href="#" class="coming-soon" title="Live Demo Coming Soon"><i class="bi bi-rocket-takeoff"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Power BI Report -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power BI Dashboard">
-                <div class="project-category">Data Visualization</div>
-            </div>
-            <div class="project-details">
-                <h3>Power BI Report</h3>
-                <p class="project-description">Power BI dashboard on tech mental health, with insights via slicers and Power Query.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Power BI</span>
-                    <span class="tech-tag">DAX</span>
-                    <span class="tech-tag">Dashboard</span>
-                </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', project_name='power_bi') }}" class="project-link">View Details</a>
-                    <div class="action-icons">
-                        <a href="#" class="coming-soon" title="GitHub Repository Coming Soon"><i class="bi bi-github"></i></a>
-                        <a href="#" class="coming-soon" title="View Report Coming Soon"><i class="bi bi-rocket-takeoff"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 
 <style>
-/* ===== Basic Layout ===== */
-.projects-header {
-    max-width: 1200px;
-    margin: 40px auto 50px;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.projects-header h2 { 
-    margin: 0; 
-    color: var(--dark-brown); 
-    font-size: 2.5rem; 
-    font-weight: 700;
-}
-.project-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 20px 60px;
-}
-.project-card {
-    background-color: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+/* CSS Variables - Keep your colors */
+:root {
+    --dark-brown: #2c1810;
+    --light-brown: #8b5e3c;
+    --white: #ffffff;
+    --gray-bg: #faf8f6;
+    --text-light: #666;
 }
 
-/* ===== Project Image ===== */
-.project-image {
+/* Base Styles */
+.projects-section {
+    background: var(--gray-bg);
+    min-height: 100vh;
+}
+
+.projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* Hero Section */
+.projects-hero {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--light-brown);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 32px;
+    transition: gap 0.3s ease;
+}
+
+.back-link:hover {
+    gap: 12px;
+    color: var(--dark-brown);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin: 0 0 16px 0;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--light-brown) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
+}
+
+/* Project Card */
+.project-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Media */
+.card-media {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    height: 220px;
     overflow: hidden;
+    background: #f0f0f0;
 }
-.project-image img {
-    position: absolute;
-    top: 0; left: 0;
+
+.card-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.project-card:hover .project-image img {
-    transform: scale(1.05);
+    transition: transform 0.5s ease;
 }
 
-/* Category Badge */
-.project-category {
+.project-card:hover .card-media img {
+    transform: scale(1.08);
+}
+
+.media-overlay {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--dark-brown);
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .media-overlay {
+    opacity: 1;
+}
+
+.category-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.95);
     padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--light-brown);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     letter-spacing: 0.5px;
-    border: 1px solid rgba(139, 94, 60, 0.15);
 }
 
-/* ===== Project Details ===== */
-.project-details {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+/* Card Content */
+.card-content {
+    padding: 24px;
 }
-.project-card h3 { 
-    color: var(--dark-brown); 
-    margin: 0 0 12px;
-    font-size: 1.4rem;
+
+.card-content h3 {
+    font-size: 1.35rem;
     font-weight: 700;
-}
-.project-description {
-    color: #555;
-    margin-bottom: 16px;
-    flex-grow: 1;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    color: var(--dark-brown);
+    margin: 0 0 12px 0;
+    line-height: 1.4;
 }
 
-/* Tech Tags */
-.project-tech {
+.card-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    font-size: 0.95rem;
+}
+
+/* Tech Stack */
+.tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
-}
-.tech-tag {
-    background: linear-gradient(135deg, var(--light-brown) 0%, #8b5cf6 100%);
-    color: white;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    margin-bottom: 24px;
 }
 
-/* Card Actions */
-.card-actions {
+.tech-stack span {
+    background: linear-gradient(135deg, rgba(139,94,60,0.1) 0%, rgba(139,94,60,0.05) 100%);
+    color: var(--light-brown);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Card Footer */
+.card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.project-link {
-    color: var(--dark-brown);
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 2px solid var(--light-brown);
-    padding-bottom: 2px;
-    transition: all 0.3s ease;
-}
-.project-link:hover {
-    color: var(--light-brown);
-    border-bottom-width: 3px;
-}
-.action-icons {
-    display: flex;
-    gap: 15px;
-}
-.action-icons a, .coming-soon {
-    font-size: 1.3rem;
-    color: var(--dark-brown);
-    text-decoration: none;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(139,94,60,0.05);
-    transition: all 0.3s ease;
-}
-.action-icons a:hover {
-    color: var(--light-brown);
-    background: rgba(139,94,60,0.1);
+    padding-top: 16px;
+    border-top: 1px solid rgba(139,94,60,0.1);
 }
 
-/* Back Button */
-.btn-back-home {
-    text-decoration: none;
+.btn-details {
     color: var(--light-brown);
+    text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
-    border: 2px solid var(--light-brown);
-    padding: 10px 24px;
-    border-radius: 25px;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
-    background: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
-.btn-back-home:hover {
-    background-color: var(--light-brown);
+
+.btn-details:hover {
+    gap: 8px;
+    color: var(--dark-brown);
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(139,94,60,0.05);
+    color: var(--light-brown);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.icon-link:hover {
+    background: rgba(139,94,60,0.15);
+    transform: scale(1.1);
+    color: var(--light-brown);
+}
+
+.coming-soon-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(139,94,60,0.05);
+    color: var(--light-brown);
+    opacity: 0.5;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+}
+
+.coming-soon-icon.disabled {
+    opacity: 0.4;
+}
+
+.coming-soon-icon:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-brown);
     color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: 64px 32px;
+    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--light-brown) 100%);
+    border-radius: 32px;
+    margin-top: 40px;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 12px 0;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 32px 0;
+    font-size: 1.1rem;
+}
+
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--light-brown);
+    padding: 12px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    gap: 12px;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Tooltip positioning */
+.coming-soon-icon {
+    position: relative;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .projects-header { flex-direction: column; gap: 20px; }
+    .projects-container {
+        padding: 24px 20px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .cta-section {
+        padding: 48px 24px;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
 }
+
 @media (max-width: 480px) {
-    .project-grid { grid-template-columns: 1fr; gap: 20px; }
+    .card-media {
+        height: 180px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-    // Prevent "Coming Soon" links
-    document.querySelectorAll('.coming-soon').forEach(link=>{
-        link.addEventListener('click', e=>e.preventDefault());
+    // Only prevent clicks on disabled coming-soon icons
+    document.querySelectorAll('.coming-soon-icon.disabled').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
     });
 });
 </script>

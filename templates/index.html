@@ -16,10 +16,10 @@
     </h1>
 
     <!-- Professional Title with subtle animation -->
-    <h2 class="hero-subtitle">
+    <h3 class="hero-subtitle">
         <span class="title-text">Software Engineer • Full-Stack Developer</span>
         <span class="animated-underline"></span>
-    </h2>
+    </h3>
 
     <p class="hero-bio">
         Versatile engineer specializing in the design and deployment of scalable, data-driven applications. I bridge the gap between complex back-end architecture and intuitive front-end experiences, leveraging cloud services and modern frameworks to deliver high-performance solutions. Proven track record of optimizing end-to-end workflows and building maintainable systems that solve real-world business challenges.    </p>
@@ -250,12 +250,19 @@
         animation: none;
     }
 
-.hero-subtitle {
-    margin-top: 12px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #666;
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin-top: 25px;
     letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;   /* smaller than name */
+    font-weight: 400;    /* lighter */
+    color: #777;         /* softer color */
+    margin-top: 8px;
 }
     
     @keyframes fadeInDown {
