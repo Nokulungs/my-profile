@@ -1,695 +1,1381 @@
 {% extends "layout.html" %}
 
+{% block title %}Sibongokuhle Bembe — Software Developer{% endblock %}
+
+{% block head %}
+<style>
+/* ==================== PAGE SHELL ==================== */
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: 100px 0;
+  scroll-margin-top: calc(var(--nav-h) + 20px);
+}
+
+section.alt {
+  position: relative;
+}
+section.alt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background: var(--bg-alt);
+  z-index: -1;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 60%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 640px;
+}
+
+.hero-cmd {
+  min-height: 20px;
+}
+
+.hero h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--floral-white);
+  margin-bottom: 16px;
+  line-height: 1.08;
+}
+
+.hero h1 .accent {
+  color: var(--accent-hi);
+}
+
+.hero-role {
+  font-family: var(--font-mono);
+  font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+  color: var(--text-dim);
+  margin-bottom: 26px;
+  letter-spacing: 0.3px;
+}
+
+.hero-role .sep {
+  color: var(--text-faint);
+  margin: 0 8px;
+}
+
+.hero-bio {
+  font-size: 1rem;
+  color: var(--text-dim);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 42px;
+}
+
+.hero-bio strong {
+  color: var(--floral-white);
+  font-weight: 500;
+}
+
+/* ==================== PORTRAIT ==================== */
+.hero-portrait-step-out {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  justify-self: end;
+  align-self: center;
+  z-index: 2;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: -45px;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(138, 154, 112, 0.16) 0%,
+    rgba(86, 84, 73, 0.10) 40%,
+    transparent 70%
+  );
+  filter: blur(45px);
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.portrait-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  background: transparent;
+  border: 1px solid rgba(216, 207, 188, 0.20);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.75),
+    inset 0 0 32px rgba(15, 16, 10, 0.60);
+  z-index: 4;
+  pointer-events: none;
+  transition: border-color 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out);
+}
+
+.portrait-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  top: 0;
+  left: 0;
+  transform: none;
+  filter: contrast(1.03) brightness(0.96);
+  z-index: 3;
+  transition: transform 0.6s var(--ease-out), filter 0.6s var(--ease-out);
+}
+
+.hero-portrait-step-out:hover { transform: translateY(-6px); }
+.hero-portrait-step-out:hover .portrait-img {
+  transform: scale(1.03);
+  filter: contrast(1.05) brightness(1);
+}
+.hero-portrait-step-out:hover .portrait-disc {
+  border-color: rgba(216, 207, 188, 0.35);
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.85),
+    0 0 25px rgba(138, 134, 119, 0.25),
+    inset 0 0 25px rgba(15, 16, 10, 0.45);
+}
+
+/* ==================== BUTTONS ==================== */
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--floral-white);
+  border-color: var(--accent-hi);
+}
+.btn-primary:hover {
+  background: var(--accent-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px var(--accent-glow);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-hover);
+}
+.btn-ghost:hover {
+  border-color: var(--accent-hi);
+  color: var(--floral-white);
+  transform: translateY(-2px);
+}
+.btn .arrow {
+  display: inline-block;
+  transition: transform 0.35s var(--ease-out);
+}
+.btn:hover .arrow { transform: translate(3px, -3px); }
+
+/* ==================== HEAD ==================== */
+.head {
+  margin-bottom: 50px;
+}
+.head h2 {
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ==================== SERVICES ==================== */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.service {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 24px;
+  position: relative;
+  transition: all 0.4s var(--ease-out);
+  overflow: hidden;
+}
+.service::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.service:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.service:hover::before { opacity: 1; }
+.service-key {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-hi);
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  display: block;
+}
+.service h3 {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--floral-white);
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+.service p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.service-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+.service-tools span {
+  padding: 3px 9px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(138, 134, 119, 0.20);
+  color: var(--accent-hi);
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* ==================== GIT LOG ==================== */
+.gitlog {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+.gitlog::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 40px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border-hover) 8%, var(--border-hover) 92%, transparent);
+}
+.commit {
+  position: relative;
+  padding-left: 60px;
+  transition: all 0.4s var(--ease-out);
+}
+.commit:hover { transform: translateX(3px); }
+.commit-hash {
+  position: absolute;
+  left: 0;
+  top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--surface);
+  border: 1px solid var(--border-hover);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+  z-index: 2;
+  transition: all 0.4s var(--ease-out);
+}
+.commit:hover .commit-hash {
+  border-color: var(--accent-hi);
+  color: var(--accent-hi);
+  box-shadow: 0 0 0 6px var(--accent-dim);
+}
+.commit-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out);
+}
+.commit:hover .commit-body { border-color: var(--border-hover); }
+.commit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.commit-title {
+  font-family: var(--font-mono);
+  font-size: 0.98rem;
+  color: var(--floral-white);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.commit-company {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+.commit-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.commit-content { padding: 20px 22px; }
+.commit-diff {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.diff-line {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--text-dim);
+}
+.diff-marker {
+  color: var(--success);
+  font-weight: 600;
+  user-select: none;
+}
+.diff-text { color: var(--text-dim); }
+.diff-text strong { color: var(--floral-white); font-weight: 500; }
+.commit-stack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(216, 207, 188, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-faint);
+  flex-wrap: wrap;
+}
+.commit-stack .label { color: var(--text-faint); letter-spacing: 0.5px; }
+.commit-stack .token { color: var(--accent-hi); padding: 2px 0; }
+.commit-stack .sep { color: var(--text-faint); opacity: 0.5; }
+
+/* ==================== SYSTEM DESIGN ==================== */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.design-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 26px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out);
+}
+.design-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.design-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.design-card:hover::before { opacity: 1; }
+.design-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  display: block;
+}
+.design-card i {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--accent-hi);
+  margin-bottom: 18px;
+  transition: transform 0.4s var(--ease-out);
+}
+.design-card:hover i { transform: translateY(-3px); }
+.design-card h3 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--floral-white);
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+.design-card p {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.design-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.design-tools span {
+  padding: 3px 9px;
+  background: rgba(216, 207, 188, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* ==================== SKILLS MATRIX ==================== */
+.skills-container {
+  width: 100%;
+  background: rgba(18, 20, 15, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  font-family: var(--font-mono);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-shell-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.terminal-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.terminal-dots .dot.red    { background: #B96B6B; }
+.terminal-dots .dot.yellow { background: #B8A468; }
+.terminal-dots .dot.green  { background: #8A9A70; }
+.shell-title {
+  color: var(--text-faint);
+  font-size: 0.82rem;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+.skills-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: rgba(216, 207, 188, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-btn:hover {
+  background: rgba(216, 207, 188, 0.06);
+  color: var(--floral-white);
+  border-color: var(--border-hover);
+}
+.filter-btn.active {
+  background: rgba(216, 207, 188, 0.10);
+  color: var(--floral-white);
+  border-color: var(--accent-hi);
+  box-shadow: 0 0 12px rgba(138, 134, 119, 0.18);
+}
+.filter-btn .indicator { font-size: 0.6rem; }
+.indicator.expert     { color: #8A9A70; }
+.indicator.proficient { color: #B8A468; }
+.indicator.familiar   { color: #6B7A8C; }
+
+.skills-badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(216, 207, 188, 0.02);
+  border: 1px solid rgba(216, 207, 188, 0.07);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--text);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              opacity 0.3s ease;
+  animation: badgeFadeIn 0.4s ease forwards;
+}
+.skill-pill:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(216, 207, 188, 0.05);
+  border-color: rgba(216, 207, 188, 0.28);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(138, 134, 119, 0.10);
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-dot.expert {
+  background: #8A9A70;
+  box-shadow: 0 0 8px rgba(138, 154, 112, 0.55);
+}
+.status-dot.proficient {
+  background: #B8A468;
+  box-shadow: 0 0 8px rgba(184, 164, 104, 0.55);
+}
+.status-dot.familiar {
+  background: #6B7A8C;
+  box-shadow: 0 0 8px rgba(107, 122, 140, 0.55);
+}
+.skill-tag {
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  background: rgba(216, 207, 188, 0.04);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+.skill-pill.hidden { display: none !important; }
+
+@keyframes badgeFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== EDUCATION ==================== */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.edu-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  padding: 26px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  align-items: start;
+}
+.edu-item + .edu-item { border-top: 1px solid var(--border); }
+.edu-date {
+  color: var(--text-faint);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding-top: 3px;
+}
+.edu-body h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--floral-white);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.edu-body p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.edu-body .edu-org {
+  color: var(--accent-hi);
+  font-size: 0.8rem;
+}
+
+/* ==================== CONTACT ==================== */
+.contact-cta {
+  text-align: center;
+  padding: 40px 0 20px;
+}
+.contact-cta .sh-script {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  margin-bottom: 24px;
+}
+.contact-cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+.contact-cta h2 em {
+  font-style: italic;
+  color: var(--accent-hi);
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+.contact-cta p {
+  color: var(--text-dim);
+  margin-bottom: 34px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+.contact-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Copy toast */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--accent);
+  color: var(--floral-white);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border: 1px solid var(--accent-hi);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s var(--ease-out);
+  z-index: 9999;
+}
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-portrait-step-out {
+    width: 260px;
+    height: 260px;
+    justify-self: center;
+    margin-top: 20px;
+  }
+  .hero-content { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .page { padding: 0 20px; }
+  section { padding: 70px 0; }
+  .hero {
+    min-height: 0;
+    padding: 90px 0 60px;
+  }
+  .skills-container {
+    padding: 18px;
+    border-radius: 10px;
+  }
+  .skills-shell-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .skills-filter { width: 100%; }
+  .filter-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  .gitlog::before { left: 16px; }
+  .commit { padding-left: 46px; }
+  .commit-hash {
+    width: 34px;
+    height: 34px;
+    font-size: 0.6rem;
+    top: 20px;
+  }
+  .commit-header {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .commit-content { padding: 16px; }
+  .edu-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px 20px;
+  }
+  .contact-actions { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+}
+</style>
+{% endblock %}
+
+
 {% block content %}
 
-<!-- ================= HERO / ABOUT ================= -->
-<section id="about" class="reveal hero-section" style="text-align:center; padding:80px 20px;">
+<div class="page">
 
-<img 
-  src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/Sibongokuhle_N_Bembe.png"
-  alt="Profile photo"
-  class="profile-pic">
+  <!-- ==================== HERO ==================== -->
+  <section id="about" class="hero">
+    <div class="hero-inner">
 
+      <div class="hero-content">
+        <div class="cmd hero-cmd" data-type="whoami"></div>
 
-    <h1 class="hero-title">
-        Sibongokuhle Nokulunga Bembe
-    </h1>
+        <h1>
+          Sibongokuhle<br>
+          Nokulunga <span class="accent">Bembe</span>
+        </h1>
 
-    <!-- Professional Title with subtle animation -->
-    <h3 class="hero-subtitle">
-        <span class="title-text">Software Engineer • Full-Stack Developer</span>
-        <span class="animated-underline"></span>
-    </h3>
+        <p class="hero-role">
+          Full-Stack Software Engineer<span class="sep">·</span>Resilient Architecture <span class="sep">·</span>Scalable Systems
+        </p>
 
-    <p class="hero-bio">
-        Versatile engineer specializing in the design and deployment of scalable, data-driven applications. I bridge the gap between complex back-end architecture and intuitive front-end experiences, leveraging cloud services and modern frameworks to deliver high-performance solutions. Proven track record of optimizing end-to-end workflows and building maintainable systems that solve real-world business challenges.    </p>
-        
-    <div class="hero-buttons">
-        <a href="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Sibongokuhle_Bembe_AI_ML_CV_v2.pdf"
-           target="_blank"
-           class="btn btn-primary">
-            Download Resume
-        </a>
-        <a href="/projects"
-           class="btn btn-outline">
-            View Projects
-        </a>
+        <p class="hero-bio">
+          Full-stack software engineer specializing in resilient backend architectures, secure APIs, and high-performance web applications. I focus on clean code, robust system design, and building scalable software, with a versatile approach and a strong drive to master diverse technology stacks.
+        </p>
+
+        <div class="hero-cta reveal-up">
+          <a href="#contact" class="btn btn-primary">
+            get in touch <span class="arrow">→</span>
+          </a>
+          <a href="https://raw.githubusercontent.com/Nokulungs/my-profile/main/Sibongokuhle_Bembe_AI_ML_CV_v2.pdf"
+             target="_blank" rel="noopener" class="btn btn-ghost">
+            download cv.pdf <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-portrait-step-out reveal-up" aria-label="Portrait of Sibongokuhle Nokulunga Bembe">
+        <div class="portrait-glow" aria-hidden="true"></div>
+        <div class="portrait-disc" aria-hidden="true"></div>
+        <img
+          class="portrait-img"
+          src="{{ url_for('static', filename='Sibongokuhle_N_Bembe.png') }}"
+          alt="">
+      </div>
+
     </div>
+  </section>
+
+</div>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services" class="alt">
+  <div class="page">
+    <div class="head reveal-up">
+      <div class="cmd" data-type="cat services.yml"></div>
+    </div>
+
+    <div class="services">
+
+      <article class="service reveal-up delay-1">
+        <span class="service-key">full_stack &amp; lifecycle:</span>
+        <h3>Full-Stack &amp; SDLC</h3>
+        <p>Developing end-to-end applications through iterative Agile sprints—building responsive interfaces and secure server-side logic while managing the software lifecycle.</p>
+        <div class="service-tools">
+          <span>React</span><span>Node.js</span><span>Flask</span><span>Agile / SDLC</span>
+        </div>
+      </article>
+
+      <article class="service reveal-up">
+        <span class="service-key">system_design &amp; data:</span>
+        <h3>System Design &amp; Data</h3>
+        <p>Translating requirements into technical specifications, system workflows, and optimized relational or NoSQL database architectures during the initial planning phase.</p>
+        <div class="service-tools">
+          <span>PostgreSQL</span><span>MongoDB</span><span>ERDs</span><span>System Design</span>
+        </div>
+      </article>
+
+
+      <article class="service reveal-up delay-2">
+        <span class="service-key">cloud_devops &amp; containers:</span>
+        <h3>Cloud &amp; DevOps</h3>
+        <p>Deploying, scaling, and managing cloud-native applications across containerized environments and automated pipelines for reliable production delivery.</p>
+        <div class="service-tools">
+          <span>Docker</span><span>Kubernetes</span><span>OpenShift</span><span>AWS / Azure</span>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 
-<!-- ================= WHAT I DO ================= -->
-<section class="reveal section">
-    <h2>What I Do</h2>
-    <div class="card-grid">
-
-        <div class="skill-card">
-            <i class="bi bi-robot icon"></i>
-            <h3>Full-Stack Development</h3>
-            <p>Designing, building, and deploying scalable web and mobile applications using modern front-end and back-end technologies, APIs, and cloud services to deliver reliable, data-driven solutions.</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="bi bi-bar-chart-line icon"></i>
-            <h3>Software Design & Architecture</h3>
-            <p>Planning, designing, and managing the full software development lifecycle (SDLC) to create scalable, maintainable, and efficient applications that meet business and user needs.</p>
-        </div>
-
-        <div class="skill-card">
-            <i class="bi bi-cloud icon"></i>
-            <h3>Cloud & DevOps</h3>
-            <p>Leveraging cloud platforms, containerization, and modern development tools to build, deploy, and scale applications reliably while optimizing performance and workflow efficiency.</p>
-        </div>
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience">
+  <div class="page">
+    <div class="head reveal-up">
+      <div class="cmd" data-type='git log --author="Sibongokuhle"'></div>
     </div>
-</section>
 
-<!-- ================= SKILLS ================= -->
-<section id="skills" class="reveal section">
-    <h2 style="text-align: center; margin-bottom: 40px;">Skills & Expertise</h2>
-    
-<div class="skills-container">
-
-<!-- Programming Languages -->
-<div class="skill-category">
-    <h3><i class="bi bi-code-slash"></i> Programming Languages</h3>
-    <div class="skills-tags">
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">HTML & CSS</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">PHP</span>
-        <span class="skill-tag">Java</span>
-        <span class="skill-tag">C#</span>
-    </div>
-</div>
-
-<!-- Development Frameworks & Tools -->
-<div class="skill-category">
-    <h3><i class="bi bi-gear"></i> Development Frameworks & Tools</h3>
-    <div class="skills-tags">
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Express</span>
-        <span class="skill-tag">Django</span>
-        <span class="skill-tag">Flask</span>
-        <span class="skill-tag">WordPress</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">GraphQL</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Git & GitHub</span>
-    </div>
-</div>
-
-<!-- Data & Databases -->
-<div class="skill-category">
-    <h3><i class="bi bi-database"></i> Data & Databases</h3>
-    <div class="skills-tags">
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">NoSQL (MongoDB)</span>
-        <span class="skill-tag">Data Modeling</span>
-        <span class="skill-tag">Database Optimization</span>
-    </div>
-</div>
-
-<!-- Cloud & DevOps -->
-<div class="skill-category">
-    <h3><i class="bi bi-cloud"></i> Cloud & DevOps</h3>
-    <div class="skills-tags">
-        <span class="skill-tag">AWS</span>
-        <span class="skill-tag">Azure</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">Cloud Deployment</span>
-    </div>
-</div>
-
-        <!-- Professional Skills -->
-        <div class="skill-category">
-            <h3><i class="bi bi-briefcase"></i> Professional Skills</h3>
-            <div class="skills-tags">
-                <span class="skill-tag">Strategic Thinking</span>
-                <span class="skill-tag">Problem Solving</span>
-                <span class="skill-tag">Project Management</span>
-                <span class="skill-tag">Communication</span>
-                <span class="skill-tag">Team Collaboration</span>
-                <span class="skill-tag">Business Research</span>
+    <div class="gitlog">
+<article class="commit reveal-up">
+        <div class="commit-hash">a3f9b21</div>
+        <div class="commit-body">
+          <header class="commit-header">
+            <div>
+              <h3 class="commit-title">Software Developer</h3>
+              <p class="commit-company">Insphired Recruitment Solutions</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================= TOOLS ================= -->
-<section class="reveal section">
-    <h2>Tools & IDEs</h2>
-    <div class="tools-grid">
-        {% for tool in "VS Code,NetBeans,Android Studio,Figma,Git,PowerBI,Azure,Docker,Jupyter,Postman,WordPress".split(",") %}
-            <div class="tool-card">
-                <div class="tool-icon">
-                    {% if tool == "VS Code" %}<i class="bi bi-code-square"></i>
-                    {% elif tool == "Git" %}<i class="bi bi-git"></i>
-                    {% elif tool == "Figma" %}<i class="bi bi-palette"></i>
-                    {% elif tool == "Jupyter" %}<i class="bi bi-journal-code"></i>
-                    {% elif tool == "Docker" %}<i class="bi bi-cloud-drizzle"></i>
-                    {% elif tool == "PowerBI" %}<i class="bi bi-bar-chart-line"></i>
-                    {% elif tool == "WordPress" %}<i class="bi bi-wordpress"></i>
-                    {% elif tool == "Android Studio" %}<i class="bi bi-phone"></i>
-                    {% elif tool == "NetBeans" %}<i class="bi bi-hdd-stack"></i>
-                    {% else %}<i class="bi bi-gear"></i>{% endif %}
-                </div>
-                <span class="tool-name">{{ tool }}</span>
+            <span class="commit-date">May 2026 — Present</span>
+          </header>
+          <div class="commit-content">
+            <div class="commit-diff">
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Collaborated directly with clients to gather requirements, define project scopes, and design tailored web solutions.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Developed full-stack recruitment and identity verification web apps using <strong>React, Flask, Node.js, and PostgreSQL</strong>.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Built secure RESTful APIs, auth controls, and cloud DB instances on <strong>Amazon S3 and RDS</strong>.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Managed maintenance, troubleshooting, UI consistency, and <strong>Technical SEO</strong> to improve performance and rankings.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Executed complete <strong>Agile/SDLC</strong> workflows to resolve production bugs and deliver maintainable features.</span>
+              </div>
             </div>
-        {% endfor %}
+            <div class="commit-stack">
+              <span class="label">stack:</span>
+              <span class="token">React</span>
+              <span class="sep">·</span>
+              <span class="token">Flask</span>
+              <span class="sep">·</span>
+              <span class="token">Node.js</span>
+              <span class="sep">·</span>
+              <span class="token">PostgreSQL</span>
+              <span class="sep">·</span>
+              <span class="token">AWS</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="commit reveal-up delay-1">
+        <div class="commit-hash">8c14d02</div>
+        <div class="commit-body">
+          <header class="commit-header">
+            <div>
+              <h3 class="commit-title">Full-Stack Developer Intern</h3>
+              <p class="commit-company">Capaciti</p>
+            </div>
+            <span class="commit-date">Nov 2024 — May 2025</span>
+          </header>
+          <div class="commit-content">
+            <div class="commit-diff">
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Built full-stack apps with <strong>React, Node.js, Flask, Django, and PostgreSQL</strong> following SDLC and Agile.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Produced specs, user guides, workflows, and <strong>ERDs</strong> for system design and maintenance.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Built responsive UIs and scalable REST APIs with <strong>AI-powered features</strong>.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Containerized and deployed with <strong>Docker, Kubernetes, OpenShift</strong>; Git/GitHub for version control.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Managed relational and NoSQL DBs (<strong>PostgreSQL, MongoDB, Amazon RDS</strong>) and ETL pipelines.</span>
+              </div>
+            </div>
+            <div class="commit-stack">
+              <span class="label">stack:</span>
+              <span class="token">React</span>
+              <span class="sep">·</span>
+              <span class="token">Django</span>
+              <span class="sep">·</span>
+              <span class="token">Docker</span>
+              <span class="sep">·</span>
+              <span class="token">Kubernetes</span>
+              <span class="sep">·</span>
+              <span class="token">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="commit reveal-up delay-2">
+        <div class="commit-hash">4b11a09</div>
+        <div class="commit-body">
+          <header class="commit-header">
+            <div>
+              <h3 class="commit-title">Web Development Trainee</h3>
+              <p class="commit-company">Umuzi</p>
+            </div>
+            <span class="commit-date">Nov 2023 — Dec 2023</span>
+          </header>
+          <div class="commit-content">
+            <div class="commit-diff">
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Applied <strong>HTML, CSS, JavaScript</strong> in structured exercises and projects.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Practiced version control with <strong>Git and GitHub</strong> in a collaborative setting.</span>
+              </div>
+              <div class="diff-line">
+                <span class="diff-marker">+</span>
+                <span class="diff-text">Delivered assignments under tight deadlines, simulating <strong>Agile sprints</strong>.</span>
+              </div>
+            </div>
+            <div class="commit-stack">
+              <span class="label">stack:</span>
+              <span class="token">HTML</span>
+              <span class="sep">·</span>
+              <span class="token">CSS</span>
+              <span class="sep">·</span>
+              <span class="token">JavaScript</span>
+              <span class="sep">·</span>
+              <span class="token">Git</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
+  </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="reveal section alt">
-    <h2>Contact Me</h2>
-    <p>Let's connect and build something amazing!</p>
-    <div class="hero-buttons">
-        <a href="https://www.linkedin.com/in/sibongokuhle-bembe-a94a00347/" class="btn btn-secondary">LinkedIn</a>
-        <a href="https://github.com/Nokulungs" class="btn btn-secondary">GitHub</a>
-        <a href="nokulungabembe@gmail.com" class="btn btn-secondary">Email</a>
+<!-- ==================== ENGINEERING WORKFLOW ==================== -->
+<section id="workflow" class="alt">
+  <div class="page">
+    <div class="head reveal-up">
+      <div class="cmd" data-type="cat engineering-workflow.md"></div>
+      <p style="color: var(--text-dim); font-size: 0.95rem; margin-top: 12px; max-width: 640px; line-height: 1.7;">
+        Great software is built through a structured process. Here is how I take a project from initial client consultation and discovery all the way to secure cloud deployment.
+      </p>
     </div>
+
+    <div class="design-grid">
+
+      <article class="design-card reveal-up">
+        <span class="design-num">01 / 04</span>
+        <i class="fas fa-users-viewfinder" aria-hidden="true"></i>
+        <h3>Discovery &amp; Scoping</h3>
+        <p>Collaborating closely with clients to gather requirements, define project scopes, map user flows, and sketch intuitive interface layouts.</p>
+        <div class="design-tools">
+          <span>Client Discovery</span><span>Scoping</span><span>User Flows</span>
+        </div>
+      </article>
+
+      <article class="design-card reveal-up delay-1">
+        <span class="design-num">02 / 04</span>
+        <i class="fas fa-database" aria-hidden="true"></i>
+        <h3>Architecture &amp; Data</h3>
+        <p>Designing relational and NoSQL schemas, entity-relationship diagrams (ERDs), and system topology to ensure consistent, scalable data flow.</p>
+        <div class="design-tools">
+          <span>PostgreSQL</span><span>MongoDB</span><span>ERDs</span>
+        </div>
+      </article>
+
+      <article class="design-card reveal-up delay-2">
+        <span class="design-num">03 / 04</span>
+        <i class="fas fa-code-merge" aria-hidden="true"></i>
+        <h3>Agile Implementation</h3>
+        <p>Developing end-to-end features through iterative sprints—translating specifications into clean, maintainable, and responsive code across the stack.</p>
+        <div class="design-tools">
+          <span>React</span><span>Node.js</span><span>Flask</span><span>Agile / SDLC</span>
+        </div>
+      </article>
+
+      <article class="design-card reveal-up delay-3">
+        <span class="design-num">04 / 04</span>
+        <i class="fas fa-cloud-arrow-up" aria-hidden="true"></i>
+        <h3>Deployment &amp; Cloud</h3>
+        <p>Containerizing services and deploying them to cloud infrastructure with automated workflows to ensure production stability and performance.</p>
+        <div class="design-tools">
+          <span>Docker</span><span>Kubernetes</span><span>AWS / Azure</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<!-- ================= FLOATING CTA ================= -->
-<a href="/contact" class="floating-cta">Hire Me</a>
+<!-- ==================== SKILLS ==================== -->
+<section id="skills" class="alt">
+  <div class="page">
+    <div class="head reveal-up">
+      <div class="cmd" data-type="cat skills.json"></div>
+      <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 12px;">
+        // filter by proficiency level, or view all
+      </p>
+    </div>
 
-<!-- ================= SCROLL REVEAL ================= -->
-<script>
-    const revealElements = document.querySelectorAll(".reveal");
-    const revealOnScroll = () => {
-        const triggerBottom = window.innerHeight * 0.85;
-        revealElements.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-            if(top < triggerBottom){
-                el.classList.add("active");
-            }
-        });
-    }
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-</script>
+    <div class="skills-container">
 
+      <div class="skills-shell-header">
+        <div class="terminal-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="shell-title">~/skills --view matrix</span>
+        </div>
+
+        <div class="skills-filter">
+          <button class="filter-btn active" data-filter="all">all [27]</button>
+          <button class="filter-btn" data-filter="expert"><span class="indicator expert">●</span> expert</button>
+          <button class="filter-btn" data-filter="proficient"><span class="indicator proficient">●</span> proficient</button>
+          <button class="filter-btn" data-filter="familiar"><span class="indicator familiar">●</span> familiar</button>
+        </div>
+      </div>
+
+      <div class="skills-badge-grid">
+
+        <!-- EXPERT -->
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">Python</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">React</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">Node.js</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">Flask</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">PostgreSQL</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">REST APIs</span>
+          <span class="skill-tag">daily</span>
+        </div>
+        <div class="skill-pill" data-level="expert">
+          <span class="status-dot expert"></span>
+          <span class="skill-name">Git &amp; GitHub</span>
+          <span class="skill-tag">daily</span>
+        </div>
+
+        <!-- PROFICIENT -->
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">TypeScript</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">Django</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">SQL</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">MongoDB</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">Docker</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">AWS (S3, RDS)</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">HTML5 &amp; CSS3</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">Agile / SDLC</span>
+          <span class="skill-tag">prod</span>
+        </div>
+        <div class="skill-pill" data-level="proficient">
+          <span class="status-dot proficient"></span>
+          <span class="skill-name">OOP</span>
+          <span class="skill-tag">prod</span>
+        </div>
+
+        <!-- FAMILIAR -->
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Java</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Kotlin</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Kubernetes</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">OpenShift</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Microsoft Azure</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Pandas</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">NumPy</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Power BI</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">AI Integration</span>
+        </div>
+        <div class="skill-pill" data-level="familiar">
+          <span class="status-dot familiar"></span>
+          <span class="skill-name">Figma</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EDUCATION ==================== -->
+<section id="education">
+  <div class="page">
+    <div class="head reveal-up">
+      <div class="cmd" data-type="cat education.txt"></div>
+    </div>
+
+    <div class="edu-list reveal-up">
+      <div class="edu-item">
+        <div class="edu-date">2022 — 2025</div>
+        <div class="edu-body">
+          <h3>Diploma in Computer Science</h3>
+          <p class="edu-org">Tshwane University of Technology</p>
+          <p style="margin-top:8px;">OOP · Web Development · Software Engineering · Database Systems · Mobile Apps · DSA · Info Security · OS · Computing Fundamentals</p>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-date">Microsoft</div>
+        <div class="edu-body">
+          <h3>Microsoft Azure Data Fundamentals (DP-900)</h3>
+          <p>Microsoft Certified</p>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-date">Coursera</div>
+        <div class="edu-body">
+          <h3>Full-Stack Developer Professional</h3>
+          <p>Coursera Certification</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact" class="alt">
+  <div class="page">
+    <div class="contact-cta reveal-up">
+      <span class="sh-script">$ ./say-hello.sh</span>
+
+      <h2>Let's build<br>something <em>worth shipping.</em></h2>
+
+      <p>
+        Open to software engineering roles, freelance work, and interesting problems.
+        Reply time is usually under 24 hours.
+      </p>
+
+      <div class="contact-actions">
+        <a href="mailto:nokulungabembe@gmail.com" class="btn btn-primary">
+          <i class="fas fa-envelope"></i> email me
+        </a>
+        <a href="https://www.linkedin.com/in/sibongokuhle-bembe-a94a00347/"
+           target="_blank" rel="noopener" class="btn btn-ghost">
+          linkedin <span class="arrow">↗</span>
+        </a>
+        <a href="https://github.com/Nokulungs"
+           target="_blank" rel="noopener" class="btn btn-ghost">
+          github <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite"></div>
+
+{% endblock %}
+
+
+{% block scripts %}
 <script>
-    // Subtle pulse animation for the title
-    document.addEventListener('DOMContentLoaded', function() {
-        const title = document.querySelector('.title-text');
-        const underline = document.querySelector('.animated-underline');
-        
-        // Add hover effect
-        title.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            underline.style.width = '100%';
-            underline.style.animation = 'underlineFlow 2s infinite linear';
-        });
-        
-        title.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            underline.style.width = '60%';
-            underline.style.animation = 'underlineFlow 3s infinite linear';
-        });
-        
-        // Initial animation on page load
-        setTimeout(() => {
-            title.style.opacity = '1';
-            title.style.transform = 'translateY(0)';
-            underline.style.width = '60%';
-        }, 500);
-        
-        // Add subtle glow effect on scroll
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.1;
-            title.style.transform = `translateY(${rate}px) scale(${1 + scrolled * 0.0001})`;
-        });
+(function () {
+
+  /* ============================================================
+     SKILLS FILTER
+     ============================================================ */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const skillPills = document.querySelectorAll('.skill-pill');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+
+      skillPills.forEach(pill => {
+        const level = pill.dataset.level;
+        const show = filter === 'all' || level === filter;
+        pill.classList.toggle('hidden', !show);
+      });
     });
+  });
+
+})();
 </script>
-
-<style>
-    /* ===== HERO ===== */
-    .profile-pic {
-        width:160px;
-        height:160px;
-        border-radius:50%;
-        object-fit:cover;
-        box-shadow:0 8px 20px rgba(0,0,0,0.15);
-        transition: transform 0.3s ease;
-        animation: profileFloat 3s ease-in-out infinite;
-    }
-    
-    @keyframes profileFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-    
-    .profile-pic:hover { 
-        transform: scale(1.05) translateY(-5px); 
-        animation: none;
-    }
-
-.hero-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--dark-brown);
-    margin-top: 25px;
-    letter-spacing: 0.5px;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;   /* smaller than name */
-    font-weight: 400;    /* lighter */
-    color: #777;         /* softer color */
-    margin-top: 8px;
-}
-    
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .hero-subtitle { 
-        margin-top: 15px; 
-        font-size:1.8em; 
-        color: var(--dark-brown);
-        font-weight: 600;
-        line-height: 1.3;
-        position: relative;
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 20px 15px;
-    }
-
-    .title-text {
-        position: relative;
-        display: inline-block;
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: titleAppear 0.8s ease forwards 0.5s;
-        text-shadow: 0 2px 4px rgba(139, 87, 42, 0.1);
-    }
-    
-    @keyframes titleAppear {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .animated-underline {
-        position: absolute;
-        bottom: 0;
-        left: 20%;
-        width: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--light-brown), #8b5cf6, var(--light-brown));
-        background-size: 200% 100%;
-        border-radius: 2px;
-        transition: width 0.5s ease;
-        animation: underlineFlow 3s infinite linear;
-    }
-    
-    @keyframes underlineFlow {
-        0% {
-            background-position: 200% 0;
-        }
-        100% {
-            background-position: -200% 0;
-        }
-    }
-
-    /* Subttyle glow effect */
-    .title-text::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, rgba(139, 87, 42, 0.1) 0%, transparent 70%);
-        transform: translate(-50%, -50%);
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    .title-text:hover::after {
-        opacity: 1;
-    }
-
-    .hero-bio { 
-        max-width:650px; 
-        margin: 40px auto 30px; 
-        font-size:1.05em; 
-        line-height: 1.6;
-        color: #555;
-        animation: fadeInUp 1s ease-out 0.8s both;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .hero-buttons a { 
-        margin:10px; 
-        transition: transform 0.3s; 
-        animation: fadeInUp 1s ease-out 1s both;
-    }
-    
-    .hero-buttons a:nth-child(2) {
-        animation-delay: 1.2s;
-    }
-    
-    .hero-buttons a:hover { 
-        transform: translateY(-3px); 
-    }
-
-    /* ===== CARDS ===== */
-    .card-grid { 
-        display:grid; 
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
-        gap:25px; 
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .skill-card, .project-card { 
-        background:white; 
-        padding:25px; 
-        border-radius:20px; 
-        box-shadow:0 6px 15px rgba(0,0,0,0.1);
-        text-align:center; 
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .skill-card:hover, .project-card:hover { 
-        transform: translateY(-5px); 
-        box-shadow:0 10px 25px rgba(139, 87, 42, 0.2);
-    }
-
-    .icon { 
-        font-size:2em; 
-        margin-bottom:15px; 
-        color:var(--light-brown); 
-    }
-
-    /* ===== SKILLS SECTION ===== */
-    .skills-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .skill-category {
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        transition: transform 0.3s ease;
-    }
-
-    .skill-category:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 18px rgba(139, 87, 42, 0.15);
-    }
-
-    .skill-category h3 {
-        color: var(--dark-brown);
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.3em;
-    }
-
-    .skill-category h3 i {
-        color: var(--light-brown);
-    }
-
-    .skills-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .skill-tag {
-        background: rgba(139, 87, 42, 0.1);
-        color: var(--dark-brown);
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.9em;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(139, 87, 42, 0.2);
-    }
-
-    .skill-tag:hover {
-        background: var(--light-brown);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(139, 87, 42, 0.2);
-    }
-
-    /* ===== TOOLS SECTION ===== */
-    .tools-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .tool-card {
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .tool-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(139, 87, 42, 0.15);
-    }
-
-    .tool-icon {
-        font-size: 2.5em;
-        color: var(--light-brown);
-    }
-
-    .tool-name {
-        font-weight: 500;
-        color: var(--dark-brown);
-    }
-
-    /* ===== FLOATING CTA ===== */
-    .floating-cta {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        background: var(--light-brown);
-        color: white;
-        padding: 14px 24px;
-        border-radius: 30px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        transition: transform 0.3s, box-shadow 0.3s;
-        z-index: 1000;
-        animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-    
-    .floating-cta:hover { 
-        transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 10px 20px rgba(139, 87, 42, 0.3);
-        animation: none;
-    }
-
-    /* ===== BUTTONS ===== */
-    .btn {
-        display: inline-block;
-        padding: 12px 26px;
-        border-radius: 30px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-
-    /* Primary button */
-    .btn-primary {
-        background: var(--dark-brown);
-        color: white;
-    }
-
-    .btn-primary:hover {
-        background: var(--light-brown);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(139, 87, 42, 0.2);
-    }
-
-    /* Outline button */
-    .btn-outline {
-        background: transparent;
-        color: var(--dark-brown);
-        border: 2px solid var(--dark-brown);
-    }
-
-    .btn-outline:hover {
-        background: var(--dark-brown);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    /* Secondary button */
-    .btn-secondary {
-        background: var(--light-brown);
-        color: white;
-    }
-
-    .btn-secondary:hover {
-        background: var(--dark-brown);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(139, 87, 42, 0.2);
-    }
-
-    /* ===== SCROLL REVEAL ===== */
-    .reveal { 
-        opacity:0; 
-        transform: translateY(40px); 
-        transition: all 0.8s ease; 
-    }
-    .reveal.active { 
-        opacity:1; 
-        transform:translateY(0); 
-    }
-
-    /* Centers the text and the container contents */
-    #contact {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 80px 20px;
-    }
-
-    /* Ensures the paragraph under the heading has proper spacing */
-    #contact p {
-        margin-bottom: 30px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Updated Hero/Contact button container */
-    .hero-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-        .skills-tags {
-            justify-content: center;
-        }
-        
-        .tools-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .hero-title {
-            font-size: 2em;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.4em;
-        }
-        
-        .skill-category {
-            padding: 20px 15px;
-        }
-        
-        .hero-bio {
-            font-size: 1em;
-            padding: 0 15px;
-            margin: 30px auto 20px;
-        }
-        
-        .profile-pic {
-            animation: profileFloatMobile 3s ease-in-out infinite;
-        }
-        
-        @keyframes profileFloatMobile {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-    }
-
-    @media (max-width: 480px) {
-        .hero-title {
-            font-size: 1.8em;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2em;
-            padding: 0 15px 10px;
-        }
-        
-        .hero-bio {
-            font-size: 0.95em;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            font-size: 0.9em;
-        }
-        
-        .floating-cta {
-            padding: 12px 20px;
-            font-size: 0.9em;
-            bottom: 20px;
-            right: 20px;
-        }
-        
-        .animated-underline {
-            height: 2px;
-        }
-    }
-</style>
-
 {% endblock %}

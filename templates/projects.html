@@ -1,597 +1,617 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 
-{% block title %}Projects{% endblock %}
+{% block title %}Projects — Sibongokuhle Bembe{% endblock %}
 
-{% block content %}
-<section class="projects-section">
-    <div class="projects-container">
-        <!-- Hero Section -->
-        <div class="projects-hero">
-            <div class="hero-content">
-                <a href="/" class="back-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    Back to About
-                </a>
-                <h1>My <span class="gradient-text">Projects</span></h1>
-                <p class="hero-description">Building innovative solutions that solve real-world problems</p>
-            </div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="project-grid">
-            <!-- SupportSync Ticketing System -->
-            <div class="project-card">
-                <div class="card-media">
-                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/supportsync.png" alt="SupportSync Ticketing System">
-                    <div class="media-overlay"></div>
-                    <div class="category-badge">Full-Stack</div>
-                </div>
-                <div class="card-content">
-                    <h3>SupportSync Ticketing System</h3>
-                    <p>A web-based IT ticketing system designed to streamline internal support requests, manage tickets, and track resolution status efficiently.</p>
-                    <div class="tech-stack">
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>MongoDB</span>
-                        <span>Tailwind</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('project_detail', project_name='supportsync') }}" class="btn-details">View Details →</a>
-                        <div class="project-links">
-                            <a href="https://github.com/Nokulungs/SupportSync" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <span class="coming-soon-icon disabled" aria-label="Live demo coming soon" data-tooltip="Live demo coming soon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                                    <circle cx="12" cy="12" r="3"/>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PulseCheck AI -->
-            <div class="project-card">
-                <div class="card-media">
-                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/Pulse.png" alt="AI Attendance Dashboard">
-                    <div class="media-overlay"></div>
-                    <div class="category-badge">AI/ML</div>
-                </div>
-                <div class="card-content">
-                    <h3>PulseCheck AI</h3>
-                    <p>Advanced attendance management using AI verification and geofencing to track student engagement.</p>
-                    <div class="tech-stack">
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>Geolocation</span>
-                        <span>AI/ML</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('project_detail', project_name='pulse_checkAI') }}" class="btn-details">View Details →</a>
-                        <div class="project-links">
-                            <a href="https://github.com/Nokulungs/PulseCheckAI" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://pulse-check-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Live demo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polygon points="15 3 21 3 21 9 15 3"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Apply Smart -->
-            <div class="project-card">
-                <div class="card-media">
-                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/apply_smart.png" alt="University Application Portal">
-                    <div class="media-overlay"></div>
-                    <div class="category-badge">Admissions</div>
-                </div>
-                <div class="card-content">
-                    <h3>Apply Smart</h3>
-                    <p>A streamlined student application portal to help students discover university programs they qualify for by comparing their APS and subject marks with program requirements.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Flask</span>
-                        <span>SQLite</span>
-                        <span>HTML/CSS</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('project_detail', project_name='apply-smart') }}" class="btn-details">View Details →</a>
-                        <div class="project-links">
-                            <a href="https://github.com/Nokulungs/ApplySmart" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://apply-smart-pink.vercel.app/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Live demo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polygon points="15 3 21 3 21 9 15 3"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Meb Hub -->
-            <div class="project-card">
-                <div class="card-media">
-                    <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/mebhub_1.png" alt="University Campus Portal">
-                    <div class="media-overlay"></div>
-                    <div class="category-badge">Student Portal</div>
-                </div>
-                <div class="card-content">
-                    <h3>Meb Hub</h3>
-                    <p>Collaborated on a web application designed to assist university students with navigating campus life.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Django</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('project_detail', project_name='meb_hub') }}" class="btn-details">View Details →</a>
-                        <div class="project-links">
-                            <span class="coming-soon-icon disabled" aria-label="GitHub coming soon" data-tooltip="GitHub repository coming soon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </span>
-                            <span class="coming-soon-icon disabled" aria-label="Live demo coming soon" data-tooltip="Live demo coming soon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                                    <circle cx="12" cy="12" r="3"/>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bias Audit: Financial Credit Scoring -->
-            <div class="project-card">
-                <div class="card-media">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bias Audit Dashboard">
-                    <div class="media-overlay"></div>
-                    <div class="category-badge">Responsible AI</div>
-                </div>
-                <div class="card-content">
-                    <h3>Bias Audit: Financial Credit Scoring</h3>
-                    <p>Comprehensive bias audit and mitigation framework for credit scoring models, investigating age-based discrimination with statistical validation and fairness interventions.</p>
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>Jupyter</span>
-                        <span>Scikit-learn</span>
-                        <span>Fairness Metrics</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('project_detail', project_name='bias_audit') }}" class="btn-details">View Details →</a>
-                        <div class="project-links">
-                            <a href="https://github.com/Nokulungs/Bias-Audit-" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <span class="coming-soon-icon disabled" aria-label="Live demo coming soon" data-tooltip="Notebook available on GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                                    <circle cx="12" cy="12" r="3"/>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Power BI Report -->
-            <div class="project-card">
-                <div class="card-media">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power BI Dashboard">
-                    <div class="media-overlay"></div>
-                    <div class="category-badge">Data Viz</div>
-                </div>
-                <div class="card-content">
-                    <h3>Power BI Report</h3>
-                    <p>Power BI dashboard on tech mental health, with insights via slicers and Power Query.</p>
-                    <div class="tech-stack">
-                        <span>Power BI</span>
-                        <span>DAX</span>
-                        <span>Data Analysis</span>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ url_for('project_detail', project_name='power_bi') }}" class="btn-details">View Details →</a>
-                        <div class="project-links">
-                            <span class="coming-soon-icon disabled" aria-label="GitHub coming soon" data-tooltip="GitHub repository coming soon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.205-3.338.72-4.042-1.41-4.042-1.41-.546-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.205.085 1.84 1.24 1.84 1.24 1.07 1.835 2.805 1.305 3.495.99.105-.765.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.87-.015 3.27 0 .315.225.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </span>
-                            <span class="coming-soon-icon disabled" aria-label="View report coming soon" data-tooltip="Report coming soon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                                    <circle cx="12" cy="12" r="3"/>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="cta-section">
-            <div class="cta-content">
-                <h3>Interested in collaborating?</h3>
-                <p>Let's build something amazing together</p>
-                <a href="/contact" class="btn-cta">Get in touch →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
+{% block head %}
 <style>
-/* CSS Variables - Keep your colors */
-:root {
-    --dark-brown: #2c1810;
-    --light-brown: #8b5e3c;
-    --white: #ffffff;
-    --gray-bg: #faf8f6;
-    --text-light: #666;
+/* ==================== PAGE LAYOUT ==================== */
+.projects-page {
+  padding: 120px 32px 100px;
+  max-width: var(--content-max);
+  margin: 0 auto;
 }
 
-/* Base Styles */
-.projects-section {
-    background: var(--gray-bg);
-    min-height: 100vh;
-}
-
-.projects-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 24px;
-}
-
-/* Hero Section */
+/* ==================== HERO ==================== */
 .projects-hero {
-    text-align: center;
-    margin-bottom: 64px;
+  text-align: left;
+  margin-bottom: 50px;
+  position: relative;
 }
 
 .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--light-brown);
-    text-decoration: none;
-    font-weight: 500;
-    margin-bottom: 32px;
-    transition: gap 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  transition: all 0.35s var(--ease-out);
 }
-
 .back-link:hover {
-    gap: 12px;
-    color: var(--dark-brown);
+  color: var(--floral-white);
+  border-color: var(--border-hover);
+  transform: translateX(-4px);
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--dark-brown);
-    margin: 0 0 16px 0;
+.projects-hero h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin: 0 0 12px;
+  color: var(--floral-white);
+}
+.projects-hero h1 em {
+  font-style: italic;
+  color: var(--accent-hi);
+}
+.projects-hero .hero-sub {
+  color: var(--text-dim);
+  max-width: 620px;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.gradient-text {
-    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--light-brown) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* ==================== WORKSPACE (SPLIT VIEW) ==================== */
+.workspace {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 80px;
 }
 
-.hero-description {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto;
+/* --- Sidebar File Tree --- */
+.workspace-sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  position: sticky;
+  top: 100px;
 }
 
-/* Project Grid */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 32px;
-    margin-bottom: 80px;
+.sidebar-header {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-faint);
+  padding: 8px 12px 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Project Card */
-.project-card {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s var(--ease-out);
+  width: 100%;
+}
+.file-item:hover {
+  background: var(--surface-2);
+  color: var(--floral-white);
+  border-color: var(--border);
+}
+.file-item.active {
+  background: var(--accent-dim);
+  border-color: var(--accent-hi);
+  color: var(--accent-hi);
+}
+.file-item svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.file-item.active svg {
+  opacity: 1;
 }
 
-/* Card Media */
-.card-media {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    background: #f0f0f0;
+/* --- Main Viewer Panel --- */
+.workspace-viewer {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
 
-.card-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
 }
 
-.project-card:hover .card-media img {
-    transform: scale(1.08);
+.viewer-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.viewer-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-hover);
 }
 
-.media-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.viewer-body {
+  padding: 36px;
 }
 
-.project-card:hover .media-overlay {
-    opacity: 1;
+.project-panel {
+  display: none;
+  animation: fadeIn 0.4s var(--ease-out) forwards;
+}
+.project-panel.active {
+  display: block;
 }
 
-.category-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--light-brown);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    letter-spacing: 0.5px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Card Content */
-.card-content {
-    padding: 24px;
+.panel-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.panel-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.card-content h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--dark-brown);
-    margin: 0 0 12px 0;
-    line-height: 1.4;
+.panel-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent-hi);
+  padding: 5px 12px;
+  border: 1px solid rgba(138, 134, 119, 0.30);
+  border-radius: 999px;
+  margin-bottom: 16px;
+  background: var(--accent-dim);
 }
 
-.card-content p {
-    color: var(--text-light);
-    line-height: 1.6;
-    margin: 0 0 20px 0;
-    font-size: 0.95rem;
+.panel-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 500;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  color: var(--floral-white);
 }
 
-/* Tech Stack */
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
+.panel-lead {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
 }
 
-.tech-stack span {
-    background: linear-gradient(135deg, rgba(139,94,60,0.1) 0%, rgba(139,94,60,0.05) 100%);
-    color: var(--light-brown);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
+.panel-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.panel-stack span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(138, 134, 119, 0.20);
+  color: var(--accent-hi);
 }
 
-/* Card Footer */
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 16px;
-    border-top: 1px solid rgba(139,94,60,0.1);
+.panel-section {
+  margin-bottom: 24px;
+}
+.panel-section h4 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.panel-section h4::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: var(--accent-hi);
+  opacity: 0.7;
+}
+.panel-section p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.panel-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.panel-section li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: var(--text-dim);
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+.panel-section li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 1px;
+  background: var(--accent-hi);
+}
+.panel-section strong {
+  color: var(--floral-white);
+  font-weight: 500;
 }
 
-.btn-details {
-    color: var(--light-brown);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
 }
 
-.btn-details:hover {
-    gap: 8px;
-    color: var(--dark-brown);
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.35s var(--ease-out);
+  border: 1px solid transparent;
+}
+.btn-action.primary {
+  background: var(--accent);
+  color: var(--floral-white);
+  border-color: var(--accent-hi);
+}
+.btn-action.primary:hover {
+  background: var(--accent-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px var(--accent-glow);
+}
+.btn-action.ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-hover);
+}
+.btn-action.ghost:hover {
+  border-color: var(--accent-hi);
+  color: var(--floral-white);
+  transform: translateY(-2px);
 }
 
-.project-links {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+/* ==================== BOTTOM CTA ==================== */
+.projects-cta {
+  text-align: center;
+  padding: 70px 32px;
+  background: linear-gradient(135deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.projects-cta h3 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: var(--floral-white);
+}
+.projects-cta p {
+  color: var(--text-dim);
+  margin: 0 auto 24px;
+  max-width: 500px;
+  font-size: 0.95rem;
+}
+.projects-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--floral-white);
+  border: 1px solid var(--accent-hi);
+  font-family: var(--font-mono);
+  font-size: 0.85srem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.35s var(--ease-out);
+}
+.projects-cta .btn:hover {
+  background: var(--accent-hi);
+  transform: translateY(-2px);
 }
 
-.icon-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(139,94,60,0.05);
-    color: var(--light-brown);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.icon-link:hover {
-    background: rgba(139,94,60,0.15);
-    transform: scale(1.1);
-    color: var(--light-brown);
-}
-
-.coming-soon-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(139,94,60,0.05);
-    color: var(--light-brown);
-    opacity: 0.5;
-    cursor: not-allowed;
-    transition: all 0.3s ease;
-}
-
-.coming-soon-icon.disabled {
-    opacity: 0.4;
-}
-
-.coming-soon-icon:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--dark-brown);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    white-space: nowrap;
-    z-index: 10;
-}
-
-/* CTA Section */
-.cta-section {
-    text-align: center;
-    padding: 64px 32px;
-    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--light-brown) 100%);
-    border-radius: 32px;
-    margin-top: 40px;
-}
-
-.cta-content h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-    margin: 0 0 12px 0;
-}
-
-.cta-content p {
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0 0 32px 0;
-    font-size: 1.1rem;
-}
-
-.btn-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: white;
-    color: var(--light-brown);
-    padding: 12px 32px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-cta:hover {
-    gap: 12px;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Tooltip positioning */
-.coming-soon-icon {
-    position: relative;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .projects-container {
-        padding: 24px 20px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .cta-section {
-        padding: 48px 24px;
-    }
-    
-    .cta-content h3 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-media {
-        height: 180px;
-    }
-    
-    .card-content {
-        padding: 20px;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-    }
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .workspace-sidebar {
+    position: static;
+  }
+  .projects-page {
+    padding: 100px 20px 80px;
+  }
 }
 </style>
+{% endblock %}
 
+{% block content %}
+<div class="projects-page">
+
+  <!-- HERO -->
+  <header class="projects-hero reveal-up">
+    <a href="/#about" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      back to home
+    </a>
+
+    <div class="cmd" data-type="ls -la projects/"></div>
+    <h1>selected <em>work.</em></h1>
+    <p class="hero-sub">
+      A look inside key projects demonstrating full-stack engineering, system architecture, and technical problem-solving.
+    </p>
+  </header>
+
+  <!-- WORKSPACE SPLIT VIEW -->
+  <div class="workspace reveal-up">
+
+    <!-- SIDEBAR FILE LIST -->
+    <aside class="workspace-sidebar">
+      <div class="sidebar-header">
+        <span>projects/</span>
+        <span>3 files</span>
+      </div>
+      <div class="file-list">
+        <button class="file-item active" data-target="pulsecheck">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          pulsecheck.md
+        </button>
+        <button class="file-item" data-target="applysmart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          apply_smart.py
+        </button>
+        <button class="file-item" data-target="biasaudit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          bias_audit.ipynb
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN VIEWER PANEL -->
+    <main class="workspace-viewer">
+      <div class="viewer-header">
+        <div class="viewer-tabs">
+          <span class="viewer-dot" style="background:#ff5f56;"></span>
+          <span class="viewer-dot" style="background:#ffbd2e;"></span>
+          <span class="viewer-dot" style="background:#27c93f;"></span>
+        </div>
+        <span id="activeFilename">cat pulsecheck.md</span>
+        <span>utf-8</span>
+      </div>
+
+      <div class="viewer-body">
+
+        <!-- PROJECT 1: PULSECHECK -->
+        <article class="project-panel active" id="pulsecheck">
+          <div class="panel-media">
+            <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/Pulse.png" alt="PulseCheck AI">
+          </div>
+          <span class="panel-tag">AI / Full-Stack</span>
+          <h2 class="panel-title">PulseCheck AI</h2>
+          <p class="panel-lead">A full-stack attendance system replacing hours-clocked with engagement-based Pulse Scores using AI-assisted verification and geofencing.</p>
+          
+          <div class="panel-stack">
+            <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>AI / LLM</span><span>Geolocation API</span><span>Vercel</span>
+          </div>
+
+          <div class="panel-section">
+            <h4>The Problem</h4>
+            <p>Traditional attendance systems rely on simple clock-ins and sick notes—both easy to falsify, tedious to process, and uninformative regarding actual work engagement.</p>
+          </div>
+
+          <div class="panel-section">
+            <h4>The Approach</h4>
+            <ul>
+              <li><strong>Pulse Scores:</strong> Replaced raw hours with a composite engagement metric built from attendance, participation, and consistency.</li>
+              <li><strong>AI Lateness Coach:</strong> Provided constructive coaching feedback on arrival patterns instead of punitive measures.</li>
+              <li><strong>Automated Document Verification:</strong> Parsed sick notes via AI to remove administrative approval bottlenecks.</li>
+              <li><strong>Geofenced Check-ins:</strong> Enforced location validation to verify physical workspace presence.</li>
+            </ul>
+          </div>
+
+          <div class="panel-section">
+            <h4>My Role &amp; Impact</h4>
+            <p>Solo full-stack build—designed data models, engineered geofencing and AI verification logic, and shipped the responsive user interfaces.</p>
+          </div>
+
+          <div class="panel-actions">
+            <a class="btn-action primary" href="https://pulse-check-ai.vercel.app/" target="_blank" rel="noopener">live demo ↗</a>
+            <a class="btn-action ghost" href="https://github.com/Nokulungs/PulseCheckAI" target="_blank" rel="noopener">github repository ↗</a>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: APPLY SMART -->
+        <article class="project-panel" id="applysmart">
+          <div class="panel-media">
+            <img src="https://raw.githubusercontent.com/Nokulungs/my-profile/main/static/apply_smart.png" alt="Apply Smart">
+          </div>
+          <span class="panel-tag">Full-Stack · Education</span>
+          <h2 class="panel-title">Apply Smart</h2>
+          <p class="panel-lead">A Flask web application calculating South African matric APS scores and instantly matching students with qualifying university programs.</p>
+          
+          <div class="panel-stack">
+            <span>Python</span><span>Flask</span><span>WTForms</span><span>JavaScript</span><span>HTML/CSS</span>
+          </div>
+
+          <div class="panel-section">
+            <h4>The Problem</h4>
+            <p>Students often waste application fees and months applying to programs they don't qualify for because university admission criteria are scattered across separate platforms and unstructured documents.</p>
+          </div>
+
+          <div class="panel-section">
+            <h4>The Approach</h4>
+            <ul>
+              <li><strong>Dynamic APS Calculator:</strong> Automated the computation of Admission Point Scores directly from user subject marks.</li>
+              <li><strong>Program Matching Engine:</strong> Cross-referenced student profiles against a database of institutional criteria.</li>
+              <li><strong>Mobile-First Design:</strong> Optimized for quick access by learners applying directly from mobile devices.</li>
+            </ul>
+          </div>
+
+          <div class="panel-section">
+            <h4>My Role &amp; Impact</h4>
+            <p>Solo build—structured program schemas, engineered matching algorithms, and implemented dynamic WTForms validation flows.</p>
+          </div>
+
+          <div class="panel-actions">
+            <a class="btn-action primary" href="https://apply-smart-pink.vercel.app/" target="_blank" rel="noopener">live demo ↗</a>
+            <a class="btn-action ghost" href="https://github.com/Nokulungs/ApplySmart" target="_blank" rel="noopener">github repository ↗</a>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: BIAS AUDIT -->
+        <article class="project-panel" id="biasaudit">
+          <div class="panel-media">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Bias Audit">
+          </div>
+          <span class="panel-tag">Responsible AI · Data Science</span>
+          <h2 class="panel-title">Bias Audit: Financial Credit Scoring</h2>
+          <p class="panel-lead">A statistical fairness audit on a credit scoring model uncovering age-based bias under 25 and testing algorithmic mitigation strategies.</p>
+          
+          <div class="panel-stack">
+            <span>Python</span><span>Jupyter</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span><span>SciPy</span>
+          </div>
+
+          <div class="panel-section">
+            <h4>The Problem</h4>
+            <p>Automated credit scoring models frequently inherit historical data biases, systematically disadvantaging specific demographics without triggering traditional model accuracy alarms.</p>
+          </div>
+
+          <div class="panel-section">
+            <h4>The Approach</h4>
+            <ul>
+              <li><strong>Proxy Analysis:</strong> Evaluated feature correlations to identify hidden demographic encoding.</li>
+              <li><strong>Disparate Impact Ratio:</strong> Measured approval rate gaps against established regulatory benchmarks.</li>
+              <li><strong>Mitigation Testing:</strong> Implemented and compared pre-processing (Reweighing) and post-processing (Threshold Moving) techniques.</li>
+            </ul>
+          </div>
+
+          <div class="panel-section">
+            <h4>My Role &amp; Impact</h4>
+            <p>Collaborative project with <strong>HerTech Hive</strong>—contributed to methodology design, executed bias detection code, and wrote analytical documentation.</p>
+          </div>
+
+          <div class="panel-actions">
+            <a class="btn-action primary" href="https://github.com/Nokulungs/Bias-Audit-" target="_blank" rel="noopener">github repository ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <section class="projects-cta reveal-up">
+    <h3>interested in working together?</h3>
+    <p>I'm open to software engineering roles, freelance projects, and interesting technical challenges.</p>
+    <a href="/#contact" class="btn">get in touch →</a>
+  </section>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-    // Only prevent clicks on disabled coming-soon icons
-    document.querySelectorAll('.coming-soon-icon.disabled').forEach(icon => {
-        icon.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-        });
+document.addEventListener('DOMContentLoaded', () => {
+  const fileItems = document.querySelectorAll('.file-item');
+  const panels = document.querySelectorAll('.project-panel');
+  const filenameLabel = document.getElementById('activeFilename');
+
+  fileItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const targetId = item.getAttribute('data-target');
+
+      // Update active sidebar buttons
+      fileItems.forEach(f => f.classList.remove('active'));
+      item.classList.add('active');
+
+      // Update active viewer panels
+      panels.forEach(panel => panel.classList.remove('active'));
+      document.getElementById(targetId).classList.add('active');
+
+      // Update terminal title bar
+      filenameLabel.textContent = `cat ${targetId === 'applysmart' ? 'apply_smart.py' : targetId === 'biasaudit' ? 'bias_audit.ipynb' : 'pulsecheck.md'}`;
     });
+  });
 });
 </script>
 {% endblock %}
